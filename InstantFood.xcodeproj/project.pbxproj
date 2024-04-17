@@ -14,6 +14,8 @@
 		52C5F6712BBFF5AC009C0326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C5F6702BBFF5AC009C0326 /* Assets.xcassets */; };
 		52C5F6742BBFF5AC009C0326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C5F6722BBFF5AC009C0326 /* LaunchScreen.storyboard */; };
 		52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104DF2BCD202A00B93A3D /* BezierPath.swift */; };
+		52E104E52BCDB0FE00B93A3D /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E42BCDB0FE00B93A3D /* K.swift */; };
+		52E104E72BCDB40100B93A3D /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E62BCDB40100B93A3D /* Suggestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		52C5F6732BBFF5AC009C0326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52C5F6752BBFF5AC009C0326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52E104DF2BCD202A00B93A3D /* BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierPath.swift; sourceTree = "<group>"; };
+		52E104E42BCDB0FE00B93A3D /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		52E104E62BCDB40100B93A3D /* Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 		52E104E22BCD204500B93A3D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52E104E42BCDB0FE00B93A3D /* K.swift */,
+				52E104E62BCDB40100B93A3D /* Suggestions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C5F66C2BBFF5AA009C0326 /* ViewController.swift in Sources */,
+				52E104E52BCDB0FE00B93A3D /* K.swift in Sources */,
 				52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */,
+				52E104E72BCDB40100B93A3D /* Suggestions.swift in Sources */,
 				52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */,
 				52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */,
 			);

@@ -15,18 +15,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="H7S-CT-J6t">
+                                <rect key="frame" x="16" y="121" width="361" height="45"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Add Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oop-wp-MRJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="ACm-VQ-S1q"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="txU-v9-1bI"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-Kb-6jV">
+                                        <rect key="frame" x="288" y="0.0" width="73" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Save" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                            <color key="baseForegroundColor" name="bgColor"/>
+                                            <color key="baseBackgroundColor" name="Brown"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VkJ-7V-OQ1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="HSx-ib-3GL"/>
+                                    <constraint firstAttribute="width" constant="361" id="lwN-YN-8Qo"/>
+                                </constraints>
+                            </stackView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-sT-wX0">
+                                <rect key="frame" x="16" y="174" width="261" height="212"/>
+                                <color key="backgroundColor" name="bgColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="212" id="vrK-VX-uL7"/>
+                                </constraints>
+                                <color key="separatorColor" name="Brown"/>
+                                <color key="sectionIndexColor" name="Brown"/>
+                                <color key="sectionIndexBackgroundColor" name="bgColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="QW0-yX-yZB">
+                                        <rect key="frame" x="0.0" y="50" width="261" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QW0-yX-yZB" id="Hws-A6-LW0">
+                                            <rect key="frame" x="0.0" y="0.0" width="261" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="bgColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="bgColor"/>
+                        <constraints>
+                            <constraint firstItem="H7S-CT-J6t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="83F-lu-c9q"/>
+                            <constraint firstItem="nZt-sT-wX0" firstAttribute="top" secondItem="oop-wp-MRJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9io-0d-JgR"/>
+                            <constraint firstItem="nZt-sT-wX0" firstAttribute="width" secondItem="oop-wp-MRJ" secondAttribute="width" multiplier="1.00385" id="RHz-G4-rxE"/>
+                            <constraint firstItem="nZt-sT-wX0" firstAttribute="leading" secondItem="H7S-CT-J6t" secondAttribute="leading" id="fqN-ba-CxO"/>
+                            <constraint firstItem="H7S-CT-J6t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="xTg-M5-6ST"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ingredientsField" destination="oop-wp-MRJ" id="srd-am-Omc"/>
+                        <outlet property="suggestionsTable" destination="nZt-sT-wX0" id="nRQ-x3-fPe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="4"/>
+            <point key="canvasLocation" x="107.63358778625954" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Brown">
+            <color red="0.45600000023841858" green="0.28299999237060547" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="bgColor">
-            <color red="0.89728575939999999" green="0.87114900350000002" blue="0.84705430270000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.8970000147819519" green="0.87099999189376831" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
