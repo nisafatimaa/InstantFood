@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet var suggestionsTable: UITableView!
     
     var shape : CAShapeLayer?
-    var suggestions = Suggestions()
+    var suggestionsManager = SuggestionsManager()
+    
+    var suggestionsArray : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         suggestionsTable.delegate = self
         suggestionsTable.dataSource = self
         ingredientsField.delegate = self
+        suggestionsManager.delegate = self
         
         //when we click outside field or table view
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissTableView))
@@ -63,17 +66,17 @@ class ViewController: UIViewController {
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return suggestions.filteredElements.count
+        return suggestionsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = suggestions.filteredElements[indexPath.row]
+        cell.textLabel?.text = suggestionsArray[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filteredText = suggestions.filteredElements[indexPath.row]
+        let filteredText = suggestionsArray[indexPath.row]
         ingredientsField.text = filteredText
         suggestionsTable.isHidden = true
     }
@@ -89,23 +92,15 @@ extension ViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
+        suggestionsManager.fetchIngredients(with: newText)
         if newText.isEmpty {
+            suggestionsTable.isHidden = true
+            suggestionsArray = []
+        } else {
             suggestionsTable.isHidden = false
         }
-        else if newText.count >= 0 {
-            suggestions.filteredElements = suggestions.elements.filter { $0.lowercased().hasPrefix(newText.lowercased()) }
-        } else {
-            suggestions.filteredElements = []
-        }
-        
         suggestionsTable.reloadData()
         return true
-    }
-    
-    //when clicked textfield
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        suggestionsTable.isHidden = false
     }
     
     //when we hit return
@@ -115,3 +110,16 @@ extension ViewController : UITextFieldDelegate {
     }
 }
 
+
+// MARK: - SuggestionsManagerDelegate
+
+extension ViewController : SuggestionsManagerDelegate {
+    func didUpdateSuggestions(_ suggestions: [String]) {
+        suggestionsArray = []
+        suggestionsArray.append(contentsOf: suggestions)
+    }
+    
+    func didCatchError(_error: Error) {
+        print("error")
+    }
+}

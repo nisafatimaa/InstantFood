@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527C39642BD3E64C00DB6C80 /* SuggestionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C39632BD3E64C00DB6C80 /* SuggestionsData.swift */; };
+		527C39662BD3EDBC00DB6C80 /* SuggestionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C39652BD3EDBC00DB6C80 /* SuggestionsModel.swift */; };
+		529B0D652BD3D5B200D51927 /* SuggestionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B0D642BD3D5B200D51927 /* SuggestionsManager.swift */; };
 		52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */; };
 		52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */; };
 		52C5F66C2BBFF5AA009C0326 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F66B2BBFF5AA009C0326 /* ViewController.swift */; };
@@ -15,10 +18,12 @@
 		52C5F6742BBFF5AC009C0326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C5F6722BBFF5AC009C0326 /* LaunchScreen.storyboard */; };
 		52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104DF2BCD202A00B93A3D /* BezierPath.swift */; };
 		52E104E52BCDB0FE00B93A3D /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E42BCDB0FE00B93A3D /* K.swift */; };
-		52E104E72BCDB40100B93A3D /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E62BCDB40100B93A3D /* Suggestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		527C39632BD3E64C00DB6C80 /* SuggestionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsData.swift; sourceTree = "<group>"; };
+		527C39652BD3EDBC00DB6C80 /* SuggestionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsModel.swift; sourceTree = "<group>"; };
+		529B0D642BD3D5B200D51927 /* SuggestionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsManager.swift; sourceTree = "<group>"; };
 		52C5F6642BBFF5AA009C0326 /* InstantFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstantFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +34,6 @@
 		52C5F6752BBFF5AC009C0326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52E104DF2BCD202A00B93A3D /* BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierPath.swift; sourceTree = "<group>"; };
 		52E104E42BCDB0FE00B93A3D /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		52E104E62BCDB40100B93A3D /* Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				52E104E42BCDB0FE00B93A3D /* K.swift */,
-				52E104E62BCDB40100B93A3D /* Suggestions.swift */,
+				529B0D642BD3D5B200D51927 /* SuggestionsManager.swift */,
+				527C39632BD3E64C00DB6C80 /* SuggestionsData.swift */,
+				527C39652BD3EDBC00DB6C80 /* SuggestionsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 				52C5F66C2BBFF5AA009C0326 /* ViewController.swift in Sources */,
 				52E104E52BCDB0FE00B93A3D /* K.swift in Sources */,
 				52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */,
-				52E104E72BCDB40100B93A3D /* Suggestions.swift in Sources */,
+				529B0D652BD3D5B200D51927 /* SuggestionsManager.swift in Sources */,
+				527C39642BD3E64C00DB6C80 /* SuggestionsData.swift in Sources */,
+				527C39662BD3EDBC00DB6C80 /* SuggestionsModel.swift in Sources */,
 				52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */,
 				52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */,
 			);
