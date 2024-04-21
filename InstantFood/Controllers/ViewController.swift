@@ -11,34 +11,23 @@ class ViewController: UIViewController {
 
     @IBOutlet var ingredientsField : UITextField!
     @IBOutlet var suggestionsTable: UITableView!
+    @IBOutlet var labels: [UILabel]!
     
     var shape : CAShapeLayer?
     var suggestionsManager = SuggestionsManager()
     
     var suggestionsArray : [String] = []
+    var hiddenLabelNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ingredientsField.layer.cornerRadius = 18
-        ingredientsField.layer.borderWidth = 2
-        ingredientsField.layer.borderColor = K.brownColor?.cgColor
-        
-        suggestionsTable.delegate = self
-        suggestionsTable.dataSource = self
-        ingredientsField.delegate = self
-        suggestionsManager.delegate = self
-        
-        //when we click outside field or table view
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissTableView))
-        view.addGestureRecognizer(tapGestureRecognizer)
+       suggestionsTable.delegate = self
+       suggestionsTable.dataSource = self
+       suggestionsManager.delegate = self
+       setupField()
     }
-    
-    @objc func dismissTableView() {
-        view.endEditing(true)
-        suggestionsTable.isHidden = true
-    }
-    
+   
     //it will be called whenever layout changer
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -47,7 +36,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let text = ingredientsField.text, !text.isEmpty else {
+            return
+        }
         
+        if hiddenLabelNum >= labels.count {
+            // make alert for ingredients exceding
+            return
+        }
+        
+        let label = labels[hiddenLabelNum]
+        label.text = text
+        label.layer.cornerRadius = 18
+        label.layer.borderColor = K.brownColor?.cgColor
+        label.layer.borderWidth = 2
+        label.isHidden = false
+        hiddenLabelNum += 1
+        ingredientsField.text = " "
+        
+    }
+    
+    func setupField(){
+        ingredientsField.layer.cornerRadius = 18
+        ingredientsField.layer.borderWidth = 2
+        ingredientsField.layer.borderColor = K.brownColor?.cgColor
+        ingredientsField.delegate = self
     }
     
     func drawBottomLayer(){
@@ -58,7 +71,6 @@ class ViewController: UIViewController {
         self.shape = shapeLayer
     }
 }
-
 
 
 // MARK: - TableView
@@ -76,13 +88,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filteredText = suggestionsArray[indexPath.row]
-        ingredientsField.text = filteredText
-        suggestionsTable.isHidden = true
-    }
     
+        ingredientsField.text = suggestionsArray[indexPath.row]
+        suggestionsTable.isHidden = true
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
-
 
 
 // MARK: - TextField
@@ -102,23 +114,17 @@ extension ViewController : UITextFieldDelegate {
         suggestionsTable.reloadData()
         return true
     }
-    
-    //when we hit return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        ingredientsField.endEditing(true)
-        return true
-    }
 }
 
 
 // MARK: - SuggestionsManagerDelegate
 
 extension ViewController : SuggestionsManagerDelegate {
+    
     func didUpdateSuggestions(_ suggestions: [String]) {
         suggestionsArray = []
         suggestionsArray.append(contentsOf: suggestions)
     }
-    
     func didCatchError(_error: Error) {
         print("error")
     }

@@ -17,7 +17,7 @@ struct BezierPath {
 
         path.move(to: CGPoint(x: 0, y: height))
         path.addLine(to: CGPoint(x: width, y: height))
-        path.addLine(to: CGPoint(x: width, y: height - 300))
+        path.addLine(to: CGPoint(x: width, y: height - 282))
 
         path.addCurve(to: CGPoint(x: width - 195, y: height - 160),
                       controlPoint1: CGPoint(x: width - 30, y: height - 174),
