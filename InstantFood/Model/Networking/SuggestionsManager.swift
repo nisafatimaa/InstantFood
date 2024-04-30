@@ -9,18 +9,17 @@ import Foundation
 
 protocol SuggestionsManagerDelegate {
     func didUpdateSuggestions(_ suggestions : [String])
-    func didCatchError(_error : Error)
+    func didCatchError(_ error : Error)
 }
 
 struct SuggestionsManager {
-    
-    let suggestionsURL = "https://api.spoonacular.com/recipes/autocomplete?apiKey=73ab19e64007404eaba3c9f48c4340e7"
+    let suggestionsURL = "https://api.spoonacular.com/recipes/autocomplete?"
     
     var delegate : SuggestionsManagerDelegate?
     
     //fetching ingredients based on textfield text
     func fetchIngredients(with text : String){
-        let urlString = "\(suggestionsURL)&query=\(text)&number=5"
+        let urlString = "\(suggestionsURL)\(APIKey.apikey)&query=\(text)&number=5"
         performTask(urlString: urlString)
     }
     
@@ -29,20 +28,19 @@ struct SuggestionsManager {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
-                   delegate?.didCatchError(_error: error!)
+                   delegate?.didCatchError(error!)
                     return
                 }
                 if let safeData = data {
-                    let suggestions = parseJSON(data: safeData)
+                    let suggestions = parseJSON(safeData)
                     delegate?.didUpdateSuggestions(suggestions)
                 }
             }
             task.resume()
         }
-        
     }
     
-    func parseJSON(data : Data) -> [String] {
+    func parseJSON(_ data : Data) -> [String] {
         let decoder = JSONDecoder()
         do {
             let decodedData : [SuggestionsData] = try decoder.decode([SuggestionsData].self, from: data)
@@ -50,7 +48,7 @@ struct SuggestionsManager {
             return suggestions
         }
         catch {
-            delegate?.didCatchError(_error: error)
+            delegate?.didCatchError(error)
             return []
         }
     }

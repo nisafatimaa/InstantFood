@@ -8,31 +8,68 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet var ingredientsField : UITextField!
     @IBOutlet var suggestionsTable: UITableView!
     @IBOutlet var labels: [UILabel]!
     
     var shape : CAShapeLayer?
     var suggestionsManager = SuggestionsManager()
-    
     var suggestionsArray : [String] = []
     var hiddenLabelNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       suggestionsTable.delegate = self
-       suggestionsTable.dataSource = self
-       suggestionsManager.delegate = self
-       setupField()
+        suggestionsTable.delegate = self
+        suggestionsTable.dataSource = self
+        suggestionsManager.delegate = self
+        setupField()
     }
-   
-    //it will be called whenever layout changer
+    
+    //shape will be reDraw when layout of screen changes
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         shape?.removeFromSuperlayer()
         drawBottomLayer()
+    }
+    
+    
+    
+    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
+        for label in labels {
+            if label.text != K.empty {
+                label.text = K.empty
+                label.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
+        hiddenLabelNum = 0
+    }
+    
+    @IBAction func getRecipePressed(_ sender: UIButton) {
+        
+        var ingredientsArray = [String]()
+        var hasIngredient = false
+        
+        for label in labels {
+            if label.text != K.empty {
+                ingredientsArray.append(label.text!)
+                hasIngredient = true
+            }
+        }
+        
+        if !hasIngredient {
+            AlertMessage.showAlertMessage(K.noIngredientsTitle, K.noIngredientsMessage, self)
+        }
+        
+        let ingredients = ingredientsArray.joined(separator: ",")
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.recipeVCIdentifier) as? RecipeViewController else {
+            return
+        }
+        vc.ingredients = ingredients
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -41,8 +78,7 @@ class ViewController: UIViewController {
         }
         
         if hiddenLabelNum >= labels.count {
-            // make alert for ingredients exceding
-            return
+            AlertMessage.showAlertMessage(K.enoughIngredientsTitle, K.enoughIngredeintsMessage, self)
         }
         
         let label = labels[hiddenLabelNum]
@@ -50,11 +86,11 @@ class ViewController: UIViewController {
         label.layer.cornerRadius = 18
         label.layer.borderColor = K.brownColor?.cgColor
         label.layer.borderWidth = 2
-        label.isHidden = false
         hiddenLabelNum += 1
-        ingredientsField.text = " "
-        
+        ingredientsField.text = K.empty
     }
+    
+    
     
     func setupField(){
         ingredientsField.layer.cornerRadius = 18
@@ -73,6 +109,7 @@ class ViewController: UIViewController {
 }
 
 
+
 // MARK: - TableView
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
@@ -88,11 +125,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
         ingredientsField.text = suggestionsArray[indexPath.row]
         suggestionsTable.isHidden = true
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -124,8 +159,12 @@ extension ViewController : SuggestionsManagerDelegate {
     func didUpdateSuggestions(_ suggestions: [String]) {
         suggestionsArray = []
         suggestionsArray.append(contentsOf: suggestions)
+        DispatchQueue.main.async {
+            self.suggestionsTable.reloadData()
+        }
     }
-    func didCatchError(_error: Error) {
-        print("error")
+    
+    func didCatchError(_ error: Error) {
+        AlertMessage.showAlertMessage("error",error.localizedDescription, self)
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 struct BezierPath {
     
-    //type function(which can  e used without creating instance of this struct)
+    //static: type function(which can be used without creating instance of its struct)
     static func createPath(in frame: CGRect) -> UIBezierPath {
         let path = UIBezierPath()
         let width = frame.width

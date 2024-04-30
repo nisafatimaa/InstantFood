@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,11 +26,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="H7S-CT-J6t">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="40.333333333333336"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Add Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oop-wp-MRJ">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Ingredient" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oop-wp-MRJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="254" height="40.333333333333336"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.45647644999999998" green="0.283175379" blue="0.2509669363" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-Kb-6jV">
                                                         <rect key="frame" x="282" y="0.0" width="73" height="40.333333333333336"/>
@@ -98,6 +100,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xof-GK-pn3" userLabel="label1">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="42"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="Brown"/>
                                                         <nil key="highlightedColor"/>
@@ -222,17 +225,43 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-vx-we6">
+                                <rect key="frame" x="118.00000000000001" y="595" width="139.33333333333337" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139.33000000000001" id="0hJ-NM-X7K"/>
+                                    <constraint firstAttribute="height" constant="43" id="FjG-NC-A3s"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Get Recipes" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
+                                    <color key="baseForegroundColor" name="bgColor"/>
+                                    <color key="baseBackgroundColor" name="Brown"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="getRecipePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dcs-IG-nCP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="bgColor"/>
                         <constraints>
+                            <constraint firstItem="r9p-vx-we6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0QY-HA-Gm9"/>
                             <constraint firstItem="jbH-w4-hRT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="9aV-he-EMW"/>
                             <constraint firstItem="jbH-w4-hRT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67.666666666666629" id="e53-f1-eQZ"/>
                             <constraint firstItem="jbH-w4-hRT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e57-4v-8P9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="r9p-vx-we6" secondAttribute="bottom" constant="140" id="m8q-3O-QXT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jbH-w4-hRT" secondAttribute="bottom" constant="214" id="oj5-xS-Of3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ingredients" id="a0t-1E-rQ2"/>
+                    <navigationItem key="navigationItem" title="Ingredients" id="a0t-1E-rQ2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="5xy-4j-Izi">
+                            <color key="tintColor" name="bgColor"/>
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="BYZ-38-t0r" id="A27-AI-mNr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ingredientsField" destination="oop-wp-MRJ" id="srd-am-Omc"/>
                         <outlet property="suggestionsTable" destination="nZt-sT-wX0" id="nRQ-x3-fPe"/>
@@ -257,6 +286,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032.8" y="2.9556650246305418"/>
+        </scene>
+        <!--Recipe View Controller-->
+        <scene sceneID="5rg-BM-bGp">
+            <objects>
+                <viewController storyboardIdentifier="recipe" id="eRX-dq-akR" customClass="RecipeViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyB-MC-RgF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Py-1L-MNW">
+                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
+                                <color key="backgroundColor" name="bgColor"/>
+                                <color key="separatorColor" name="Brown"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" name="bgColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7oT-vg-2lt"/>
+                        <color key="backgroundColor" name="bgColor"/>
+                        <constraints>
+                            <constraint firstItem="7Py-1L-MNW" firstAttribute="bottom" secondItem="7oT-vg-2lt" secondAttribute="bottom" id="L61-gT-SNY"/>
+                            <constraint firstItem="7Py-1L-MNW" firstAttribute="trailing" secondItem="7oT-vg-2lt" secondAttribute="trailing" id="Ruw-8e-vpc"/>
+                            <constraint firstItem="7Py-1L-MNW" firstAttribute="top" secondItem="7oT-vg-2lt" secondAttribute="top" id="dso-Co-SIK"/>
+                            <constraint firstItem="7Py-1L-MNW" firstAttribute="leading" secondItem="7oT-vg-2lt" secondAttribute="leading" id="lPA-iq-Ad4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recipeTableView" destination="7Py-1L-MNW" id="WSE-ND-Gge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNy-SR-6x5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="3"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="ayU-nX-dq3">
+            <objects>
+                <viewController storyboardIdentifier="details" id="zWa-sX-HTK" customClass="DetailsViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rgw-PW-wx6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QVP-7p-0Ez"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgf-W6-QhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2865" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yRz-2b-JFI">
@@ -316,5 +393,8 @@
         <namedColor name="bgColor">
             <color red="0.8970000147819519" green="0.87099999189376831" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
