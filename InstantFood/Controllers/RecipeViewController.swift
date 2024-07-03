@@ -22,7 +22,11 @@ class RecipeViewController: UIViewController {
         recipeTableView.dataSource = self
         recipeManager.delegate = self
         
+        recipeTableView.rowHeight = 100
         recipeManager.fetchRecipe(of: ingredients)
+        
+        navigationController?.navigationBar.tintColor = K.lightColor
+        self.navigationItem.title = "Recipes"
         
         recipeTableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.TVCCellIdentifier)
     }
@@ -33,8 +37,19 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = recipeArray[indexPath.row]
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.detailsVCIdentifier) as? DetailsViewController else {
             return
+        }
+        vc.imageURL = selectedRecipe.image
+        vc.titleOfRecipe = selectedRecipe.title
+        vc.missingIngredientsCount = selectedRecipe.missedIngredientsCount
+        
+        for i in selectedRecipe.missedIngredients {
+            vc.missingIng.append(i.original)
+        }
+        for i in selectedRecipe.usedIngredients {
+            vc.usedIng.append(i.original)
         }
         navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -48,18 +63,13 @@ extension RecipeViewController : UITableViewDataSource {
         return recipeArray.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TVCCellIdentifier, for: indexPath) as! RecipeTableViewCell
         
         let indexRow = recipeArray[indexPath.row]
-        let m = "Missing ingredients: "
         cell.imageURL = indexRow.image
         cell.titleLabel.text = indexRow.title
-        cell.missedIngredientCount.text = "\(m)\(String(indexRow.missedIngredientsCount))"
+        cell.missedIngredientCount.text = "missing ingredients : \(String(indexRow.missedIngredientsCount))"
         return cell
     }
 }
@@ -67,7 +77,7 @@ extension RecipeViewController : UITableViewDataSource {
 
 // MARK: - RecipeManagerDelegate
 extension RecipeViewController : RecipeManagerDelegate {
-    
+
     func didUpdateRecipe(_ recipe: [RecipeModel]) {
         recipeArray = []
         recipeArray.append(contentsOf: recipe)
@@ -75,8 +85,10 @@ extension RecipeViewController : RecipeManagerDelegate {
             self.recipeTableView.reloadData()
         }
     }
-    
+
     func didCatchError(_ error: Error) {
-        AlertMessage.showAlertMessage("Error", error.localizedDescription, self)
+        DispatchQueue.main.async {
+            AlertMessage.showAlertMessage("Error", error.localizedDescription, self)
+        }
     }
 }

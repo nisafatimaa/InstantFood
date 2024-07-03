@@ -15,14 +15,14 @@ struct Result : Codable{
     let title : String
     let image : String
     let missedIngredientCount : Int
-//    let usedIngredients : [UsedIngredients]
-//    let missedIngrdients : [MissedIngredients]
+    let usedIngredients : [UsedIngredients]
+    let missedIngredients : [MissedIngredients]
 }
 
-//struct MissedIngredients : Codable {
-//    let original : String
-//}
-//
-//struct UsedIngredients : Codable {
-//    let original : String
-//}
+struct MissedIngredients : Codable {
+    let original : String
+}
+
+struct UsedIngredients : Codable {
+    let original : String
+}

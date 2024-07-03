@@ -24,17 +24,10 @@ class ViewController: UIViewController {
         suggestionsTable.delegate = self
         suggestionsTable.dataSource = self
         suggestionsManager.delegate = self
-        setupField()
-    }
-    
-    //shape will be reDraw when layout of screen changes
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        shape?.removeFromSuperlayer()
+        ingredientsField.delegate = self
         drawBottomLayer()
+        Border.addBorder(ingredientsField)
     }
-    
     
     
     @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
@@ -72,6 +65,7 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let text = ingredientsField.text, !text.isEmpty else {
             return
@@ -83,20 +77,10 @@ class ViewController: UIViewController {
         
         let label = labels[hiddenLabelNum]
         label.text = text
-        label.layer.cornerRadius = 18
-        label.layer.borderColor = K.brownColor?.cgColor
-        label.layer.borderWidth = 2
         hiddenLabelNum += 1
         ingredientsField.text = K.empty
-    }
-    
-    
-    
-    func setupField(){
-        ingredientsField.layer.cornerRadius = 18
-        ingredientsField.layer.borderWidth = 2
-        ingredientsField.layer.borderColor = K.brownColor?.cgColor
-        ingredientsField.delegate = self
+        suggestionsTable.isHidden = true
+        Border.addBorder(label)
     }
     
     func drawBottomLayer(){
