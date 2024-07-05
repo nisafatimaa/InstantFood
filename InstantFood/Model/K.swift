@@ -11,6 +11,7 @@ struct K {
     
     static var brownColor = UIColor(named: "Brown")
     static var lightColor = UIColor(named: "bgColor")
+    static var primaryColor = UIColor(named: "PrimaryColor")
     static var cellIdentifier = "cell"
     static var recipeVCIdentifier = "recipe"
     static var TVCCellIdentifier = "recipeCell"
@@ -27,4 +28,5 @@ struct K {
     static var welcomeVCOIdentifier = "one"
     static var signupVCIdentifier = "signup"
     static var loginVCIdentifier = "login"
+    static var preferencesVCIdentifier = "preferences"
 }
