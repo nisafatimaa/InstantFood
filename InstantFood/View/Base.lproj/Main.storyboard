@@ -88,7 +88,7 @@
         <!--Ingredients-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="ViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -781,8 +781,8 @@
                                                         </constraints>
                                                         <color key="tintColor" name="PrimaryColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" image="google.png" cornerStyle="large">
-                                                            <color key="baseForegroundColor" name="2ndryColor"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                            <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
                                                             <color key="baseBackgroundColor" name="PrimaryColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -798,9 +798,8 @@
                                                         </constraints>
                                                         <color key="tintColor" name="PrimaryColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Sign up" cornerStyle="large">
-                                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
-                                                            <color key="baseForegroundColor" name="2ndryColor"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                            <backgroundConfiguration key="background" image="facebook" imageContentMode="scaleAspectFit"/>
                                                             <color key="baseBackgroundColor" name="PrimaryColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -923,22 +922,28 @@
                                         <color key="backgroundColor" red="0.93339359759999996" green="0.93324041369999999" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="lj8-Kc-li7"/>
-                                            <constraint firstAttribute="width" constant="292" id="yjY-6m-qBF"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="292" id="yjY-6m-qBF"/>
                                         </constraints>
                                         <color key="textColor" name="PrimaryColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="IgX-MT-qR6" id="NZy-mQ-m7R"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NYA-aM-dMH">
                                         <rect key="frame" x="0.0" y="192" width="292" height="52"/>
                                         <color key="backgroundColor" red="0.93339359759999996" green="0.93324041369999999" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="QIJ-VU-d4f"/>
-                                            <constraint firstAttribute="width" constant="292" id="xLa-wm-ErD"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="292" id="xLa-wm-ErD"/>
                                         </constraints>
                                         <color key="textColor" name="PrimaryColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="IgX-MT-qR6" id="GNU-tC-ZbN"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCT-de-JWj">
                                         <rect key="frame" x="0.0" y="261" width="292" height="55"/>
@@ -979,9 +984,8 @@
                                                         </constraints>
                                                         <color key="tintColor" name="PrimaryColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Sign up" cornerStyle="large">
-                                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
-                                                            <color key="baseForegroundColor" name="2ndryColor"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                            <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
                                                             <color key="baseBackgroundColor" name="PrimaryColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -997,9 +1001,8 @@
                                                         </constraints>
                                                         <color key="tintColor" name="PrimaryColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Sign up" cornerStyle="large">
-                                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
-                                                            <color key="baseForegroundColor" name="2ndryColor"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                            <backgroundConfiguration key="background" image="facebook" imageContentMode="scaleAspectFit"/>
                                                             <color key="baseBackgroundColor" name="PrimaryColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -1025,7 +1028,7 @@
                                 <rect key="frame" x="-5" y="35" width="85" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AvH-l2-dVS"/>
-                                    <constraint firstAttribute="width" constant="85" id="Usb-25-Igd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="Usb-25-Igd"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="Back">
@@ -1048,6 +1051,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="KGd-9y-NwN" id="Dfb-66-fzo"/>
+                        <outlet property="loginButton" destination="GCT-de-JWj" id="qNg-d2-0dw"/>
                         <outlet property="passwordField" destination="NYA-aM-dMH" id="PBH-EV-oEt"/>
                         <outlet property="registerSegment" destination="TsR-HT-Yzs" id="F5H-rl-bCZ"/>
                     </connections>
@@ -1060,7 +1064,8 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="dishImage" width="360" height="360"/>
-        <image name="google.png" width="18" height="18"/>
+        <image name="facebook" width="2143" height="2143"/>
+        <image name="google" width="1024" height="1024"/>
         <namedColor name="2ndryColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

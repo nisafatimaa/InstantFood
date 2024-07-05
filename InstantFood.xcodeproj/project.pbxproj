@@ -23,6 +23,7 @@
 		529613192C37EAC9008784EF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 529613182C37EAC9008784EF /* GoogleSignIn */; };
 		5296131B2C37EAC9008784EF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5296131A2C37EAC9008784EF /* GoogleSignInSwift */; };
 		5296131D2C37EB3B008784EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5296131C2C37EB3B008784EF /* GoogleService-Info.plist */; };
+		5296131F2C38310E008784EF /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296131E2C38310E008784EF /* LoginManager.swift */; };
 		529B0D652BD3D5B200D51927 /* SuggestionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B0D642BD3D5B200D51927 /* SuggestionsManager.swift */; };
 		52BC82772BD7C262007285CF /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82762BD7C262007285CF /* RecipeManager.swift */; };
 		52BC82792BD7C308007285CF /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82782BD7C308007285CF /* RecipeModel.swift */; };
@@ -53,6 +54,7 @@
 		529613132C36BCFA008784EF /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		529613152C37DAD8008784EF /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		5296131C2C37EB3B008784EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5296131E2C38310E008784EF /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		529B0D642BD3D5B200D51927 /* SuggestionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsManager.swift; sourceTree = "<group>"; };
 		52BC82762BD7C262007285CF /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		52BC82782BD7C308007285CF /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				522D2D582BE13DE20096A1CA /* AlertMessage.swift */,
 				520AC7DD2BFE434700EB9E6C /* Border.swift */,
 				529613152C37DAD8008784EF /* SignupManager.swift */,
+				5296131E2C38310E008784EF /* LoginManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				52CAC7182C347FF0006406F7 /* LoginViewController.swift in Sources */,
 				52CAC7162C347FE2006406F7 /* SignupViewController.swift in Sources */,
 				522D2D592BE13DE20096A1CA /* AlertMessage.swift in Sources */,
+				5296131F2C38310E008784EF /* LoginManager.swift in Sources */,
 				529B0D652BD3D5B200D51927 /* SuggestionsManager.swift in Sources */,
 				527C39642BD3E64C00DB6C80 /* SuggestionsData.swift in Sources */,
 				52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */,
