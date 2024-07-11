@@ -302,7 +302,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-vx-we6">
-                                <rect key="frame" x="118" y="595" width="139.33333333333337" height="43"/>
+                                <rect key="frame" x="118.00000000000001" y="595" width="139.33333333333337" height="43"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139.33000000000001" id="0hJ-NM-X7K"/>
@@ -361,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="799"/>
+            <point key="canvasLocation" x="4529" y="814"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="5rg-BM-bGp">
@@ -394,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNy-SR-6x5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794" y="814"/>
+            <point key="canvasLocation" x="5476" y="814"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="ayU-nX-dq3">
@@ -544,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgf-W6-QhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="845"/>
+            <point key="canvasLocation" x="6486" y="845"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lzx-r1-Nb6">
@@ -1282,25 +1282,25 @@
             </objects>
             <point key="canvasLocation" x="4530" y="-730"/>
         </scene>
-        <!--View Controller-->
+        <!--Dislikes View Controller-->
         <scene sceneID="xQ2-Ke-V5V">
             <objects>
-                <viewController storyboardIdentifier="dislikes" id="rJR-nV-bg5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dislikes" id="rJR-nV-bg5" customClass="DislikesViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pQ2-r8-GW1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-MS-3eT">
-                                <rect key="frame" x="8" y="88" width="359" height="600"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-MS-3eT">
+                                <rect key="frame" x="8" y="98" width="359" height="594"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your prefered country food?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpD-HR-bqd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any dislikes / Allergic ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpD-HR-bqd">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="81.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                         <color key="textColor" name="PrimaryColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tuy-Kt-5sq">
-                                        <rect key="frame" x="0.0" y="88.333333333333343" width="359" height="57"/>
+                                        <rect key="frame" x="0.0" y="86.333333333333343" width="359" height="57"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" placeholder="Search here" translatesAutoresizingMaskIntoConstraints="NO" id="CIP-vL-AXx">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="57"/>
@@ -1329,14 +1329,14 @@
                                                     <color key="baseBackgroundColor" name="PrimaryColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="searchPressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="Ej5-4B-P5V"/>
+                                                    <action selector="searchPressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="eOQ-38-ZGd"/>
                                                     <action selector="signupClicked:" destination="iE2-dN-pq2" eventType="touchUpInside" id="hTM-yf-B0b"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsF-CN-Uml">
-                                        <rect key="frame" x="0.0" y="152.33333333333337" width="359" height="218"/>
+                                        <rect key="frame" x="0.0" y="148.33333333333337" width="359" height="218"/>
                                         <subviews>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1GI-I9-IwA">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="218"/>
@@ -1345,7 +1345,7 @@
                                                     <constraint firstAttribute="width" constant="359" id="r9N-d5-BUG"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="yEc-iL-dYa">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DislikesCell" id="yEc-iL-dYa">
                                                         <rect key="frame" x="0.0" y="50" width="359" height="43.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yEc-iL-dYa" id="lfO-fG-TiY">
@@ -1370,7 +1370,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nry-Zg-CNo">
-                                        <rect key="frame" x="0.0" y="377.33333333333331" width="359" height="222.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="371.33333333333331" width="359" height="222.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6DN-hV-27Z">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="49"/>
@@ -1475,7 +1475,7 @@
                                     <color key="baseBackgroundColor" name="PrimaryColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="savePressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="GrG-xO-hGX"/>
+                                    <action selector="savePressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="ehZ-Dh-YOc"/>
                                     <action selector="signupClicked:" destination="iE2-dN-pq2" eventType="touchUpInside" id="71d-tK-WPN"/>
                                 </connections>
                             </button>
@@ -1491,8 +1491,8 @@
                                     <color key="baseForegroundColor" name="PrimaryColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="backpressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="JaU-A1-iQY"/>
                                     <action selector="backpressed:" destination="pGc-CV-599" eventType="touchUpInside" id="b4f-df-WaF"/>
-                                    <action selector="backpressed:" destination="rJR-nV-bg5" eventType="touchUpInside" id="wS1-2q-VGr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1502,31 +1502,31 @@
                             <constraint firstItem="Fy3-Ty-Hy1" firstAttribute="top" secondItem="k0d-88-JV8" secondAttribute="top" constant="-15" id="KpD-Se-GOZ"/>
                             <constraint firstItem="4D3-MS-3eT" firstAttribute="centerX" secondItem="pQ2-r8-GW1" secondAttribute="centerX" id="Q3P-z8-t62"/>
                             <constraint firstItem="KEE-I5-oPt" firstAttribute="centerX" secondItem="pQ2-r8-GW1" secondAttribute="centerX" id="Y0I-cF-D16"/>
-                            <constraint firstItem="4D3-MS-3eT" firstAttribute="centerY" secondItem="pQ2-r8-GW1" secondAttribute="centerY" constant="-18" id="czj-iL-KfJ"/>
+                            <constraint firstItem="4D3-MS-3eT" firstAttribute="centerY" secondItem="pQ2-r8-GW1" secondAttribute="centerY" constant="-11" id="czj-iL-KfJ"/>
                             <constraint firstItem="KEE-I5-oPt" firstAttribute="bottom" secondItem="k0d-88-JV8" secondAttribute="bottom" id="oIt-Cr-EDS"/>
                             <constraint firstItem="Fy3-Ty-Hy1" firstAttribute="centerX" secondItem="pQ2-r8-GW1" secondAttribute="centerX" constant="-150" id="wua-3u-22b"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countrySearch" destination="CIP-vL-AXx" id="cR4-po-hXd"/>
-                        <outlet property="countryTableView" destination="1GI-I9-IwA" id="GOl-DH-37Y"/>
-                        <outletCollection property="countryStackViews" destination="6DN-hV-27Z" collectionClass="NSMutableArray" id="9Al-cF-jdf"/>
-                        <outletCollection property="countryStackViews" destination="byU-5E-Uwr" collectionClass="NSMutableArray" id="Rnx-3d-ud0"/>
-                        <outletCollection property="countryStackViews" destination="xtD-cT-5g1" collectionClass="NSMutableArray" id="Yzj-7I-Hj0"/>
-                        <outletCollection property="countryStackViews" destination="GQO-iM-a5L" collectionClass="NSMutableArray" id="OTH-Jr-iix"/>
+                        <outlet property="ingredientsSearch" destination="CIP-vL-AXx" id="Ji9-eD-qfz"/>
+                        <outlet property="ingredientsTableView" destination="1GI-I9-IwA" id="uv9-pW-VKA"/>
+                        <outletCollection property="ingredientsStackViews" destination="6DN-hV-27Z" collectionClass="NSMutableArray" id="h9c-yf-Me2"/>
+                        <outletCollection property="ingredientsStackViews" destination="byU-5E-Uwr" collectionClass="NSMutableArray" id="yR8-wg-OGd"/>
+                        <outletCollection property="ingredientsStackViews" destination="xtD-cT-5g1" collectionClass="NSMutableArray" id="m0x-ZZ-C71"/>
+                        <outletCollection property="ingredientsStackViews" destination="GQO-iM-a5L" collectionClass="NSMutableArray" id="IJc-uA-Gyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lp7-Ob-h2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4396" y="13"/>
+            <point key="canvasLocation" x="4529" y="13"/>
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.backward" catalog="system" width="32" height="32"/>
         <image name="dishImage" width="360" height="360"/>
         <image name="facebook" width="2143" height="2143"/>
         <image name="google" width="1024" height="1024"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
         <namedColor name="2ndryColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

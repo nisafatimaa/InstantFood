@@ -29,6 +29,7 @@ class PreferencesViewController: UIViewController {
         
     }
     
+// MARK: - LoadingCountries
     func loadCountries() -> [Country] {
         guard let path = Bundle.main.path(forResource: "countries", ofType: "json"),
               let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
@@ -45,6 +46,8 @@ class PreferencesViewController: UIViewController {
         }
     }
     
+    
+// MARK: - Buttons
     @IBAction func searchPressed(_ sender: Any) {
         let searchString = countrySearch.text ?? ""
         filterCountries(searchString)
@@ -52,6 +55,8 @@ class PreferencesViewController: UIViewController {
     }
     
     @IBAction func savePressed(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.dislikesVCIdentifier) as? DislikesViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func backpressed(_ sender: UIButton) {
@@ -59,6 +64,8 @@ class PreferencesViewController: UIViewController {
          navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+// MARK: - Labels
     func showCountryLabel (_ country : Country) {
         for stackView in countryStackViews {
             if let emptyView = stackView.arrangedSubviews.first(where: {$0.subviews.isEmpty}) {
@@ -66,9 +73,7 @@ class PreferencesViewController: UIViewController {
                 let label = LabelWithDelButton()
                 label.delegate = self
                 label.configure(with: country.name)
-                label.layer.cornerRadius = 12
-                label.layer.borderColor = K.primaryColor?.cgColor
-                label.layer.borderWidth = 3
+                Border.addBorder(label)
                 emptyView.addSubview(label)
 
                 label.translatesAutoresizingMaskIntoConstraints = false

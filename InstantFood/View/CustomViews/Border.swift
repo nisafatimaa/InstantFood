@@ -9,8 +9,8 @@ import UIKit
 
 struct Border {
     static func addBorder (_ view : UIView){
-        view.layer.cornerRadius = 18
-        view.layer.borderColor = K.brownColor?.cgColor
+        view.layer.cornerRadius = 14
+        view.layer.borderColor = K.primaryColor?.cgColor
         view.layer.borderWidth = 2
     }
 }
