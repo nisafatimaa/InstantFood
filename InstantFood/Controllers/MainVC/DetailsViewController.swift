@@ -45,9 +45,6 @@ class DetailsViewController: UIViewController {
         
         titleLabel.text = titleOfRecipe
         missedIngredientsLabel.text = "\(K.missingIng) \(String(describing: missingIngredientsCount ?? 0))"
-        
-        detailsTable.dataSource = self
-        detailsTable.delegate = self
 
         Border.addBorder(scrollView)
         Border.addBorder(detailsSegment)
@@ -58,13 +55,13 @@ class DetailsViewController: UIViewController {
     
     @objc func segmentChange(_ sender : UISegmentedControl){
         detailsTable.reloadData()
-        detailsSegment.setTitleTextAttributes([.foregroundColor : K.lightColor!], for: .selected)
+        detailsSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
     }
 
     
     func setupSegmentControl(){
         detailsSegment.selectedSegmentIndex = 0
-        detailsSegment.setTitleTextAttributes([.foregroundColor : K.lightColor!], for: .selected)
+        detailsSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         detailsSegment.addTarget(self, action: #selector(segmentChange(_:)), for: .valueChanged)
     }
 }

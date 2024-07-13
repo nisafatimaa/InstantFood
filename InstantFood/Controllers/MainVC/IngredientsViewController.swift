@@ -1,17 +1,19 @@
 //
-//  DislikesViewController.swift
+//  IngredientsViewController.swift
 //  InstantFood
 //
-//  Created by Macbook Pro on 10/07/2024.
+//  Created by Macbook Pro on 11/07/2024.
 //
 
 import UIKit
 
-class DislikesViewController: UIViewController {
-    
-    @IBOutlet var ingredientsTableView: UITableView!
-    @IBOutlet var ingredientsSearch: UISearchBar!
+class IngredientsViewController: UIViewController {
+
+    @IBOutlet var ingredientSearchBar: UISearchBar!
+    @IBOutlet var ingredientTable: UITableView!
     @IBOutlet var ingredientsStackViews: [UIStackView]!
+    
+    var shape : CAShapeLayer?
     
     private var ingredients : [Ingredient] = []
     private var filteredIngredients : [Ingredient] = []
@@ -24,6 +26,8 @@ class DislikesViewController: UIViewController {
         filteredIngredients = ingredients
         
         navigationItem.hidesBackButton = true
+        
+        drawBottomLayer()
     }
     
     
@@ -47,20 +51,25 @@ class DislikesViewController: UIViewController {
     }
     
     
-    // MARK: - Buttons
-    @IBAction func searchPressed(_ sender: Any) {
-        let searchString = ingredientsSearch.text ?? ""
+    func drawBottomLayer(){
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.fillColor = K.primaryColor?.cgColor
+        shapeLayer.path = BezierPath.createPath(in: view.frame).cgPath
+        self.view.layer.addSublayer(shapeLayer)
+        self.shape = shapeLayer
+    }
+    
+    @IBAction func searchIngredient(_ sender: UIButton) {
+        let searchString = ingredientSearchBar.text ?? ""
         filterIngredient(searchString)
-        ingredientsTableView.reloadData()
+        ingredientTable.reloadData()
     }
     
-    @IBAction func savePressed(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.ingredientsVCIdentifier) as? IngredientsViewController else { return }
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func backpressed(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.preferencesVCIdentifier) as? PreferencesViewController else { return }
+    @IBAction func getRecipesButton(_ sender: UIButton) {
+        
+        let ingredients = selectedIngredients.map {$0.title}.joined(separator: ",")
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.recipeVCIdentifier) as? RecipeViewController else { return }
+        vc.ingredients = ingredients
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -91,9 +100,8 @@ class DislikesViewController: UIViewController {
 }
 
 
-
 // MARK: - LabelWithDelButtonDelegate
-extension DislikesViewController : LabelWithDelButtonDelegate {
+extension IngredientsViewController : LabelWithDelButtonDelegate {
     func didDeleteLabel(with text: String) {
         if let index = selectedIngredients.firstIndex(where: { $0.title == text }) {
             selectedIngredients.remove(at: index)
@@ -120,7 +128,7 @@ extension DislikesViewController : LabelWithDelButtonDelegate {
 
 
 // MARK: - TableViewDelegate
-extension DislikesViewController : UITableViewDelegate {
+extension IngredientsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedIngredient = filteredIngredients[indexPath.row]
         
@@ -136,7 +144,7 @@ extension DislikesViewController : UITableViewDelegate {
 
 
 // MARK: - TableViewDataSource
-extension DislikesViewController : UITableViewDataSource {
+extension IngredientsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredIngredients.count
     }
@@ -155,32 +163,33 @@ extension DislikesViewController : UITableViewDataSource {
         return cell
     }
 }
-    
-    
-    // MARK: - SearchBarDelegate
-    extension DislikesViewController : UISearchBarDelegate {
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            let searchText = ingredientsSearch.text ?? ""
-            
-            if searchText.isEmpty {
-                filteredIngredients = ingredients
-            } else {
-                let searchString = searchText.lowercased()
-                filterIngredient(searchString)
-            }
-            ingredientsTableView.reloadData()
-        }
+
+
+
+// MARK: - SearchBarDelegate
+extension IngredientsViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchText = ingredientSearchBar.text ?? ""
         
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            ingredientsTableView.isHidden = false
+        if searchText.isEmpty {
+            filteredIngredients = ingredients
+        } else {
+            let searchString = searchText.lowercased()
+            filterIngredient(searchString)
         }
-        
-        //filtering countries to show in tableview
-        func filterIngredient (_ text : String) {
-            filteredIngredients = ingredients.filter { Ingredient in
-                let name = Ingredient.title.lowercased()
-                return name.hasPrefix(text) ||
-                (name.rangeOfCharacter(from: .letters) != nil && name.contains(text))
-            }
+        ingredientTable.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        ingredientTable.isHidden = false
+    }
+    
+    //filtering countries to show in tableview
+    func filterIngredient (_ text : String) {
+        filteredIngredients = ingredients.filter { Ingredient in
+            let name = Ingredient.title.lowercased()
+            return name.hasPrefix(text) ||
+            (name.rangeOfCharacter(from: .letters) != nil && name.contains(text))
         }
     }
+}

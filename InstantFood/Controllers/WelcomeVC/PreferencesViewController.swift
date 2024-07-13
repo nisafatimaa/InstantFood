@@ -13,9 +13,12 @@ class PreferencesViewController: UIViewController {
     @IBOutlet var countrySearch: UISearchBar!
     @IBOutlet var countryStackViews: [UIStackView]!
     
-    var countries : [Country] = []
-    var filteredCountries : [Country] = []
-    var selectedCountries : [Country] = []
+    //typealias : nickname for already existing data type
+    typealias countryList = Array<Country>
+    
+    var countries : countryList = []
+    var filteredCountries : countryList = []
+    var selectedCountries : countryList = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

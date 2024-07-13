@@ -18,14 +18,12 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recipeTableView.delegate = self
-        recipeTableView.dataSource = self
         recipeManager.delegate = self
         
         recipeTableView.rowHeight = 100
         recipeManager.fetchRecipe(of: ingredients)
         
-        navigationController?.navigationBar.tintColor = K.lightColor
+        navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "Recipes"
         
         recipeTableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.TVCCellIdentifier)
@@ -37,7 +35,9 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let selectedRecipe = recipeArray[indexPath.row]
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.detailsVCIdentifier) as? DetailsViewController else {
             return
         }

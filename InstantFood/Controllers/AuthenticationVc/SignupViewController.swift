@@ -31,7 +31,7 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         
         registerSegment.selectedSegmentIndex = 0
-        registerSegment.setTitleTextAttributes([.foregroundColor : K.lightColor!], for: .selected)
+        registerSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
         navigationItem.hidesBackButton = true
         updateSignupButton()

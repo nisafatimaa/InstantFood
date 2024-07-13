@@ -20,7 +20,6 @@ struct RecipeManager {
     func fetchRecipe(of ingredients : String){
         let urlString = "\(recipeURL)\(APIKey.apikey)&includeIngredients=\(ingredients)&fillIngredients=true"
         performTask(with: urlString)
-        
     }
     
     func performTask(with urlString : String){

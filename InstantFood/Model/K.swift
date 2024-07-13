@@ -8,9 +8,6 @@
 import UIKit
 
 struct K {
-    
-    static var brownColor = UIColor(named: "Brown")
-    static var lightColor = UIColor(named: "bgColor")
     static var primaryColor = UIColor(named: "PrimaryColor")
     
     static var cellIdentifier = "cell"
@@ -34,7 +31,7 @@ struct K {
     static var loginVCIdentifier = "login"
     static var preferencesVCIdentifier = "preferences"
     static var dislikesVCIdentifier = "dislikes"
-    static var vCIdentifier = "vc"
+    static var ingredientsVCIdentifier = "ingredients"
     static var recipeVCIdentifier = "recipe"
     static var detailsVCIdentifier = "details"
 }

@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct Country : Codable, Equatable {
+//custon typealias for protocols
+typealias MyJSONModel = Codable & Equatable
+
+struct Country : MyJSONModel {
     var code : String
     var name : String
     

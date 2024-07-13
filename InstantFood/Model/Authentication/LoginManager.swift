@@ -18,8 +18,8 @@ struct LoginManager {
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if error == nil {
-                guard let pvc = vc.storyboard?.instantiateViewController(withIdentifier: K.preferencesVCIdentifier) as? PreferencesViewController else { return }
-                vc.navigationController?.pushViewController(pvc, animated: true)
+                guard let mainVC = vc.storyboard?.instantiateViewController(withIdentifier: K.ingredientsVCIdentifier) as? IngredientsViewController else { return }
+                vc.navigationController?.pushViewController(mainVC, animated: true)
             } else {
                 AlertMessage.showAlertMessage("Account do not exist.", "This account do not exist.you can create a new account.", vc)
             }
@@ -50,8 +50,8 @@ struct LoginManager {
                 if error != nil {
                     AlertMessage.showAlertMessage("Try later", "Unable to sign up with google", vc)
                     return }
-                guard let pvc = vc.storyboard?.instantiateViewController(withIdentifier: "vc") as? ViewController else { return }
-                        vc.navigationController?.pushViewController(pvc, animated: true)
+                guard let mainVC = vc.storyboard?.instantiateViewController(withIdentifier: K.ingredientsVCIdentifier) as? IngredientsViewController else { return }
+                        vc.navigationController?.pushViewController(mainVC, animated: true)
                     }
                 }
             }

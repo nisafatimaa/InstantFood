@@ -32,7 +32,7 @@ class RecipeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = K.brownColor?.cgColor
+        contentView.layer.borderColor = K.primaryColor?.cgColor
         contentView.layer.cornerRadius = 7
         Border.addBorder(DishImage)
     }

@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         registerSegment.selectedSegmentIndex = 1
-        registerSegment.setTitleTextAttributes([.foregroundColor : K.lightColor!], for: .selected)
+        registerSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
         navigationItem.hidesBackButton = true
         updateLoginButton()
