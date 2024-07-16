@@ -32,13 +32,9 @@ class RecipeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = K.brownColor?.cgColor
-        contentView.layer.cornerRadius = 5.0
-        
-        DishImage.layer.cornerRadius = 13
-        DishImage.layer.borderColor =  K.brownColor?.cgColor
-        DishImage.layer.borderWidth = 1.0
-        DishImage.clipsToBounds = true
+        contentView.layer.borderColor = K.primaryColor?.cgColor
+        contentView.layer.cornerRadius = 7
+        Border.addBorder(DishImage)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import UIKit
 
 struct RecipeModel {
     var title : String
     var image : String
     var missedIngredientsCount : Int
-//    var missedIngredients : [String]
-//    var usedIngredient : [String]
+    var missedIngredients : [MissedIngredients]
+    var usedIngredients : [UsedIngredients]
 }

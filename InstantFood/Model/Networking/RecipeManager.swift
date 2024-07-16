@@ -18,9 +18,8 @@ struct RecipeManager {
     var delegate : RecipeManagerDelegate?
     
     func fetchRecipe(of ingredients : String){
-        let urlString = "\(recipeURL)\(APIKey.apikey)&\(ingredients)&fillIngredients=true&instructionsRequired=true"
+        let urlString = "\(recipeURL)\(APIKey.apikey)&includeIngredients=\(ingredients)&fillIngredients=true"
         performTask(with: urlString)
-        
     }
     
     func performTask(with urlString : String){
@@ -32,9 +31,10 @@ struct RecipeManager {
                     return
                 }
                 if let safeData = data {
+             //       let data = String(data: safeData, encoding: .utf8)
                     if let recipe = parseJSON(safeData) {
-                        delegate?.didUpdateRecipe(recipe)
-                    }
+                         delegate?.didUpdateRecipe(recipe)
+                     }
                 }
             }
             task.resume()
@@ -50,13 +50,31 @@ struct RecipeManager {
                 let image = result.image
                 let title = result.title
                 let count = result.missedIngredientCount
-                let newRecipe = RecipeModel(title: title, image: image, missedIngredientsCount: count)
+                var missedIngredients: [MissedIngredients] = []
+                
+                for ingredient in result.missedIngredients {
+                        missedIngredients.append(ingredient)
+                      }
+                
+                var usedIngredients: [UsedIngredients] = []
+                
+                for ingredient in result.usedIngredients {
+                          usedIngredients.append(ingredient)
+                    }
+                
+                let newRecipe = RecipeModel(title: title,
+                                            image: image,
+                                            missedIngredientsCount: count,
+                                            missedIngredients: missedIngredients,
+                                            usedIngredients: usedIngredients)
                 recipe.append(newRecipe)
+                
             }
             return recipe
         }
         catch {
             delegate?.didCatchError(error)
+            print("error parsing data",error.localizedDescription)
             return nil
         }
     }

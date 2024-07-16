@@ -5,7 +5,6 @@
 //  Created by Macbook Pro on 30/04/2024.
 //
 
-import Foundation
 import UIKit
 
 struct AlertMessage {
