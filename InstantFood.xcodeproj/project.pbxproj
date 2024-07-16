@@ -27,10 +27,10 @@
 		529613162C37DAD8008784EF /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529613152C37DAD8008784EF /* SignupManager.swift */; };
 		529613192C37EAC9008784EF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 529613182C37EAC9008784EF /* GoogleSignIn */; };
 		5296131B2C37EAC9008784EF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5296131A2C37EAC9008784EF /* GoogleSignInSwift */; };
-		5296131D2C37EB3B008784EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5296131C2C37EB3B008784EF /* GoogleService-Info.plist */; };
 		5296131F2C38310E008784EF /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296131E2C38310E008784EF /* LoginManager.swift */; };
 		52BC82772BD7C262007285CF /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82762BD7C262007285CF /* RecipeManager.swift */; };
 		52BC82792BD7C308007285CF /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82782BD7C308007285CF /* RecipeModel.swift */; };
+		52C1B2D32C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */; };
 		52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */; };
 		52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */; };
 		52C5F66F2BBFF5AA009C0326 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C5F66D2BBFF5AA009C0326 /* Main.storyboard */; };
@@ -64,10 +64,10 @@
 		5295294F2C395515004CA4DC /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		529613132C36BCFA008784EF /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		529613152C37DAD8008784EF /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
-		5296131C2C37EB3B008784EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5296131E2C38310E008784EF /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		52BC82762BD7C262007285CF /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		52BC82782BD7C308007285CF /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info 1.27.11 PM.plist"; sourceTree = "<group>"; };
 		52C5F6642BBFF5AA009C0326 /* InstantFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstantFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		52C5F6662BBFF5AA009C0326 /* InstantFood */ = {
 			isa = PBXGroup;
 			children = (
+				52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */,
 				52C5F6752BBFF5AC009C0326 /* Info.plist */,
-				5296131C2C37EB3B008784EF /* GoogleService-Info.plist */,
 				52BC827C2BD7C5A1007285CF /* Supporting Files */,
 				52E104E22BCD204500B93A3D /* Model */,
 				52E104E12BCD203200B93A3D /* View */,
@@ -336,11 +336,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				529529502C395515004CA4DC /* countries.json in Resources */,
+				52C1B2D32C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist in Resources */,
 				52C5F6742BBFF5AC009C0326 /* LaunchScreen.storyboard in Resources */,
 				52369B662C3D107B000EE299 /* CountryTableViewCell.xib in Resources */,
 				52C5F6712BBFF5AC009C0326 /* Assets.xcassets in Resources */,
 				52D4BDC62C3F0051004983CD /* ingredients.json in Resources */,
-				5296131D2C37EB3B008784EF /* GoogleService-Info.plist in Resources */,
 				52C5F66F2BBFF5AA009C0326 /* Main.storyboard in Resources */,
 				522D2D552BDF83EC0096A1CA /* RecipeTableViewCell.xib in Resources */,
 			);
