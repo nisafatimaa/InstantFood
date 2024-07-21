@@ -11,17 +11,29 @@ class RecipeViewController: UIViewController {
 
     @IBOutlet weak var recipeTableView : UITableView!
     
-    var recipeArray : [RecipeModel] = []
+    var recipeArray : [Recipe] = []
+    var savedRecipes : [Recipe] = []
+    
     var recipeManager = RecipeManager()
     var ingredients : String = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recipeManager.delegate = self
-        
         recipeTableView.rowHeight = 100
-        recipeManager.fetchRecipe(of: ingredients)
+        recipeManager.fetchRecipes(withIngredients: ingredients) { [weak self] recipes in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if let recipes = recipes {
+                    self.recipeArray = recipes
+                    self.recipeTableView.reloadData()
+                }
+                else {
+                    AlertMessage.showAlertMessage("Network issue", "Please try again", self)
+                }
+            }
+        }
         
         navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "Recipes"
@@ -38,19 +50,14 @@ extension RecipeViewController : UITableViewDelegate {
         
         let selectedRecipe = recipeArray[indexPath.row]
         
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.detailsVCIdentifier) as? DetailsViewController else {
-            return
-        }
-        vc.imageURL = selectedRecipe.image
-        vc.titleOfRecipe = selectedRecipe.title
-        vc.missingIngredientsCount = selectedRecipe.missedIngredientsCount
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: K.detailsVCIdentifier) as? DetailsViewController else { return }
         
-        for i in selectedRecipe.missedIngredients {
-            vc.missingIng.append(i.original)
-        }
-        for i in selectedRecipe.usedIngredients {
-            vc.usedIng.append(i.original)
-        }
+        vc.imageURL = selectedRecipe.image
+        vc.titleOfRecipe = selectedRecipe.label
+        vc.ingredientsArray = selectedRecipe.ingredientLines
+        vc.cookingTime = selectedRecipe.totalTime
+        vc.instructionsURL = selectedRecipe.url
+        
         navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -66,29 +73,24 @@ extension RecipeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TVCCellIdentifier, for: indexPath) as! RecipeTableViewCell
         
-        let indexRow = recipeArray[indexPath.row]
-        cell.imageURL = indexRow.image
-        cell.titleLabel.text = indexRow.title
-        cell.missedIngredientCount.text = "missing ingredients : \(String(indexRow.missedIngredientsCount))"
+        let recipe = recipeArray[indexPath.row]
+        cell.imageURL = recipe.image
+        cell.titleLabel.text = recipe.label
+        cell.cookingTime.text = "Cooking Time: \(recipe.totalTime) min"
+        cell.saveRecipeAction = { [weak self] in
+            self?.saveRecipe(recipe)
+        } //the function is assigned to closure which is called when heart button is tapped
+        
         return cell
     }
-}
-
-
-// MARK: - RecipeManagerDelegate
-extension RecipeViewController : RecipeManagerDelegate {
-
-    func didUpdateRecipe(_ recipe: [RecipeModel]) {
-        recipeArray = []
-        recipeArray.append(contentsOf: recipe)
-        DispatchQueue.main.async {
-            self.recipeTableView.reloadData()
-        }
-    }
-
-    func didCatchError(_ error: Error) {
-        DispatchQueue.main.async {
-            AlertMessage.showAlertMessage("Error", error.localizedDescription, self)
+    
+    func saveRecipe(_ recipe : Recipe) {
+        if let index = savedRecipes.firstIndex(where: { $0.label == recipe.label }) {
+            savedRecipes.remove(at: index)
+            print("Recipe removed: \(recipe.label)")
+        } else {
+            savedRecipes.append(recipe)
+            print("Recipe saved: \(recipe.label)")
         }
     }
 }

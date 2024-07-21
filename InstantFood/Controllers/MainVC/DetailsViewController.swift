@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailsViewController: UIViewController {
 
     @IBOutlet var recipeImage : UIImageView!
     @IBOutlet var scrollView : UIView!
-    @IBOutlet var detailsTable: UITableView!
-    @IBOutlet var missedIngredientsLabel: UILabel!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet weak var detailsSegment : UISegmentedControl!
+    @IBOutlet var detailsTable : UITableView!
+    @IBOutlet var cookingLabel : UILabel!
+    @IBOutlet var titleLabel : UILabel!
     
     var titleOfRecipe : String?
     var imageURL : String? {
@@ -31,38 +31,34 @@ class DetailsViewController: UIViewController {
             }
         }
     }
-    var missingIng : [String] = []
-    var usedIng : [String] = []
     var ingredientsArray : [String] = []
-    var instructionsArray : [String] = ["no instructions avalible"]
-    var missingIngredientsCount : Int?
+    var cookingTime : Int?
+    var instructionsURL : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        ingredientsArray.append(contentsOf: missingIng)
-        ingredientsArray.append(contentsOf: usedIng)
         
         titleLabel.text = titleOfRecipe
-        missedIngredientsLabel.text = "\(K.missingIng) \(String(describing: missingIngredientsCount ?? 0))"
+        cookingLabel.text = "Cooking Time: \(String(describing: cookingTime)) min"
 
         Border.addBorder(scrollView)
-        Border.addBorder(detailsSegment)
         Border.addBorder(detailsTable)
-        setupSegmentControl()
         
     }
     
-    @objc func segmentChange(_ sender : UISegmentedControl){
-        detailsTable.reloadData()
-        detailsSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+    @IBAction func heartClicked(_ sender: UIButton) {
+        
     }
-
     
-    func setupSegmentControl(){
-        detailsSegment.selectedSegmentIndex = 0
-        detailsSegment.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
-        detailsSegment.addTarget(self, action: #selector(segmentChange(_:)), for: .valueChanged)
+    @IBAction func instructionsClicked(_ sender: UIButton) {
+        guard let url = URL(string: instructionsURL ?? "") else { return }
+        
+        let webView = WKWebView(frame: self.view.frame)
+        self.view.addSubview(webView)
+        webView.navigationDelegate = self
+        
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }
 
@@ -71,26 +67,42 @@ class DetailsViewController: UIViewController {
 // MARK: - table view datasource
 extension DetailsViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if detailsSegment.selectedSegmentIndex == 0 {
             return ingredientsArray.count
-        } else {
-            return instructionsArray.count
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.detailsVCCIdentifier, for: indexPath)
         
-        if detailsSegment.selectedSegmentIndex == 0 {
-                cell.textLabel?.text = ingredientsArray[indexPath.row]
-            } else {
-                cell.textLabel?.text = instructionsArray[indexPath.row]
-            }
+        cell.textLabel?.text = ingredientsArray[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         detailsTable.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
+
+// MARK: - WK Navigation Delegate
+extension DetailsViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        let darkModeCSS = """
+        body {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+        }
+        a {
+            color: #bb86fc !important;
+        }
+        """
+        
+        let darkModeScript = """
+        var style = document.createElement('style');
+        style.innerHTML = `\(darkModeCSS)`;
+        document.head.appendChild(style);
+        """
+        
+        webView.evaluateJavaScript(darkModeScript, completionHandler: nil)
     }
 }

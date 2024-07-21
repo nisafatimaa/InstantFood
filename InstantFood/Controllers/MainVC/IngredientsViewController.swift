@@ -14,6 +14,7 @@ class IngredientsViewController: UIViewController {
     @IBOutlet var ingredientsStackViews: [UIStackView]!
     
     var shape : CAShapeLayer?
+    var recipeManager = RecipeManager()
     
     private var ingredients : [Ingredient] = []
     private var filteredIngredients : [Ingredient] = []

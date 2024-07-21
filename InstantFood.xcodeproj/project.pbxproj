@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		520AC7DE2BFE434700EB9E6C /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AC7DD2BFE434700EB9E6C /* Border.swift */; };
 		521464F02C400AB200F9C509 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521464EF2C400AB200F9C509 /* IngredientsViewController.swift */; };
-		52282A402BD7D96D00D88B78 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52282A3F2BD7D96D00D88B78 /* RecipeData.swift */; };
 		52282A432BD7DABC00D88B78 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52282A422BD7DABC00D88B78 /* APIKey.swift */; };
 		522D2D542BDF83EC0096A1CA /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D2D522BDF83EC0096A1CA /* RecipeTableViewCell.swift */; };
 		522D2D552BDF83EC0096A1CA /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522D2D532BDF83EC0096A1CA /* RecipeTableViewCell.xib */; };
@@ -30,7 +29,7 @@
 		5296131F2C38310E008784EF /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296131E2C38310E008784EF /* LoginManager.swift */; };
 		52BC82772BD7C262007285CF /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82762BD7C262007285CF /* RecipeManager.swift */; };
 		52BC82792BD7C308007285CF /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC82782BD7C308007285CF /* RecipeModel.swift */; };
-		52C1B2D32C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */; };
+		52C1B2D32C46B34D00E89320 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52C1B2D22C46B34D00E89320 /* GoogleService-Info.plist */; };
 		52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */; };
 		52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */; };
 		52C5F66F2BBFF5AA009C0326 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C5F66D2BBFF5AA009C0326 /* Main.storyboard */; };
@@ -46,12 +45,12 @@
 		52D4BDC92C3F0169004983CD /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4BDC82C3F0169004983CD /* IngredientsModel.swift */; };
 		52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104DF2BCD202A00B93A3D /* BezierPath.swift */; };
 		52E104E52BCDB0FE00B93A3D /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E42BCDB0FE00B93A3D /* K.swift */; };
+		7DDE31502C4B9BBD000FB89A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7DDE314F2C4B9BBD000FB89A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		520AC7DD2BFE434700EB9E6C /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		521464EF2C400AB200F9C509 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
-		52282A3F2BD7D96D00D88B78 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		52282A422BD7DABC00D88B78 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		522D2D522BDF83EC0096A1CA /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		522D2D532BDF83EC0096A1CA /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
@@ -67,7 +66,7 @@
 		5296131E2C38310E008784EF /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		52BC82762BD7C262007285CF /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		52BC82782BD7C308007285CF /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
-		52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info 1.27.11 PM.plist"; sourceTree = "<group>"; };
+		52C1B2D22C46B34D00E89320 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52C5F6642BBFF5AA009C0326 /* InstantFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstantFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C5F6672BBFF5AA009C0326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C5F6692BBFF5AA009C0326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 				529613102C35D2C8008784EF /* FirebaseAuth in Frameworks */,
 				529613122C35D2C8008784EF /* FirebaseFirestore in Frameworks */,
 				52369B6B2C3D1A15000EE299 /* FlagKit in Frameworks */,
+				7DDE31502C4B9BBD000FB89A /* Alamofire in Frameworks */,
 				529613192C37EAC9008784EF /* GoogleSignIn in Frameworks */,
 				5296131B2C37EAC9008784EF /* GoogleSignInSwift in Frameworks */,
 			);
@@ -107,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				52BC82762BD7C262007285CF /* RecipeManager.swift */,
-				52282A3F2BD7D96D00D88B78 /* RecipeData.swift */,
 				52BC82782BD7C308007285CF /* RecipeModel.swift */,
 			);
 			path = Networking;
@@ -177,7 +176,7 @@
 		52C5F6662BBFF5AA009C0326 /* InstantFood */ = {
 			isa = PBXGroup;
 			children = (
-				52C1B2D22C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist */,
+				52C1B2D22C46B34D00E89320 /* GoogleService-Info.plist */,
 				52C5F6752BBFF5AC009C0326 /* Info.plist */,
 				52BC827C2BD7C5A1007285CF /* Supporting Files */,
 				52E104E22BCD204500B93A3D /* Model */,
@@ -287,6 +286,7 @@
 				529613182C37EAC9008784EF /* GoogleSignIn */,
 				5296131A2C37EAC9008784EF /* GoogleSignInSwift */,
 				52369B6A2C3D1A15000EE299 /* FlagKit */,
+				7DDE314F2C4B9BBD000FB89A /* Alamofire */,
 			);
 			productName = InstantFood;
 			productReference = 52C5F6642BBFF5AA009C0326 /* InstantFood.app */;
@@ -320,6 +320,8 @@
 				5296130E2C35D2C8008784EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				529613172C37EAC8008784EF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				52369B692C3D1A15000EE299 /* XCRemoteSwiftPackageReference "FlagKit" */,
+				7DDE314B2C4B97A1000FB89A /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				7DDE314E2C4B9BBD000FB89A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 52C5F6652BBFF5AA009C0326 /* Products */;
 			projectDirPath = "";
@@ -336,7 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				529529502C395515004CA4DC /* countries.json in Resources */,
-				52C1B2D32C46B34D00E89320 /* GoogleService-Info 1.27.11 PM.plist in Resources */,
+				52C1B2D32C46B34D00E89320 /* GoogleService-Info.plist in Resources */,
 				52C5F6742BBFF5AC009C0326 /* LaunchScreen.storyboard in Resources */,
 				52369B662C3D107B000EE299 /* CountryTableViewCell.xib in Resources */,
 				52C5F6712BBFF5AC009C0326 /* Assets.xcassets in Resources */,
@@ -372,7 +374,6 @@
 				5296131F2C38310E008784EF /* LoginManager.swift in Sources */,
 				52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */,
 				52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */,
-				52282A402BD7D96D00D88B78 /* RecipeData.swift in Sources */,
 				52D4BDBF2C3EB182004983CD /* LabelWithDelButton.swift in Sources */,
 				52CAC7112C347B7D006406F7 /* WelcomeViewControllerOne.swift in Sources */,
 				52BC82792BD7C308007285CF /* RecipeModel.swift in Sources */,
@@ -620,6 +621,22 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		7DDE314B2C4B97A1000FB89A /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
+		7DDE314E2C4B9BBD000FB89A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -647,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 529613172C37EAC8008784EF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		7DDE314F2C4B9BBD000FB89A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DDE314E2C4B9BBD000FB89A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

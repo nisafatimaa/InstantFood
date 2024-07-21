@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct RecipeModel {
-    var title : String
-    var image : String
-    var missedIngredientsCount : Int
-    var missedIngredients : [MissedIngredients]
-    var usedIngredients : [UsedIngredients]
+struct RecipeSearchResponse: Codable {
+    let hits: [RecipeHit]
+}
+
+struct RecipeHit: Codable {
+    let recipe: Recipe
+}
+
+struct Recipe: Codable {
+    let label: String
+    let image: String
+    let ingredientLines: [String]
+    let url: String
+    let totalTime : Int
 }
