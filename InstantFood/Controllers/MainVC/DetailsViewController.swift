@@ -10,12 +10,16 @@ import WebKit
 
 class DetailsViewController: UIViewController {
 
+    
+// MARK: - IBOutlets
     @IBOutlet var recipeImage : UIImageView!
     @IBOutlet var scrollView : UIView!
     @IBOutlet var detailsTable : UITableView!
     @IBOutlet var cookingLabel : UILabel!
     @IBOutlet var titleLabel : UILabel!
     
+    
+// MARK: - Variables
     var titleOfRecipe : String?
     var imageURL : String? {
         didSet {
@@ -35,20 +39,28 @@ class DetailsViewController: UIViewController {
     var cookingTime : Int?
     var instructionsURL : String?
     
+    
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLabel.text = titleOfRecipe
-        cookingLabel.text = "Cooking Time: \(String(describing: cookingTime)) min"
+        if cookingTime != nil {
+            cookingLabel.text = "Cooking Time: \(String(describing: cookingTime)) min"
+        }
 
         Border.addBorder(scrollView)
         Border.addBorder(detailsTable)
         
     }
     
+    
+// MARK: - Buttons
     @IBAction func heartClicked(_ sender: UIButton) {
         
     }
+    
     
     @IBAction func instructionsClicked(_ sender: UIButton) {
         guard let url = URL(string: instructionsURL ?? "") else { return }
@@ -64,7 +76,7 @@ class DetailsViewController: UIViewController {
 
 
 
-// MARK: - table view datasource
+// MARK: - table view datasource and delegate
 extension DetailsViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return ingredientsArray.count

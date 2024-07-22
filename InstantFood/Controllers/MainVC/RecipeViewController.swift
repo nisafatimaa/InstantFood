@@ -9,14 +9,18 @@ import UIKit
 
 class RecipeViewController: UIViewController {
 
+// MARK: - IBOutlet
     @IBOutlet weak var recipeTableView : UITableView!
     
+    
+// MARK: - Variables
     var recipeArray : [Recipe] = []
     var savedRecipes : [Recipe] = []
-    
     var recipeManager = RecipeManager()
     var ingredients : String = " "
     
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +40,7 @@ class RecipeViewController: UIViewController {
         }
         
         navigationController?.navigationBar.tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
         self.navigationItem.title = "Recipes"
         
         recipeTableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.TVCCellIdentifier)
@@ -47,7 +52,6 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let selectedRecipe = recipeArray[indexPath.row]
         
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.detailsVCIdentifier) as? DetailsViewController else { return }

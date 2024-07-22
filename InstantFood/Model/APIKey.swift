@@ -8,5 +8,6 @@
 import Foundation
 
 struct APIKey {
-    static var apikey = "apiKey=73ab19e64007404eaba3c9f48c4340e7"
+    static var apikey = "6e9f986ac112e52937fefd13c5c541d6"
+    static var appID = "a29c4a7a"
 }

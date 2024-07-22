@@ -6,17 +6,28 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 class DislikesViewController: UIViewController {
     
+    
+// MARK: - IBOutets
     @IBOutlet var ingredientsTableView: UITableView!
     @IBOutlet var ingredientsSearch: UISearchBar!
     @IBOutlet var ingredientsStackViews: [UIStackView]!
     
+    
+// MARK: - Variables
     private var ingredients : [Ingredient] = []
     private var filteredIngredients : [Ingredient] = []
     private var selectedIngredients : [Ingredient] = []
+    var selectedCountries : [Country] = []
+    let db = Firestore.firestore()
     
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +38,7 @@ class DislikesViewController: UIViewController {
     }
     
     
-    
-    // MARK: - LoadingIngredients
+// MARK: - LoadingIngredients
     func loadIngredients() -> [Ingredient] {
         guard let path = Bundle.main.path(forResource: "ingredients", ofType: "json"),
               let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
@@ -47,17 +57,43 @@ class DislikesViewController: UIViewController {
     }
     
     
-    // MARK: - Buttons
+    
+// MARK: - Firestore
+    func saveUserInfo () {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let dislikesData = selectedIngredients.map { [ "title": $0.title ] }
+        let preferedCountries = selectedCountries.map { ["title": $0.name] }
+        
+        let userData: [String: Any] = [
+            "preferredCountries": preferedCountries,
+            "dislikes": dislikesData
+        ]
+        
+        db.collection("users").document(userID).setData(userData) { error in
+            if let error = error {
+                print("Error saving preferences: \(error)")
+            } else {
+                print("Preferences saved successfully!")
+            }
+        }
+    }
+    
+    
+// MARK: - Buttons
     @IBAction func searchPressed(_ sender: Any) {
         let searchString = ingredientsSearch.text ?? ""
         filterIngredient(searchString)
         ingredientsTableView.reloadData()
     }
     
+    
     @IBAction func savePressed(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.ingredientsVCIdentifier) as? IngredientsViewController else { return }
         navigationController?.pushViewController(vc, animated: true)
+        saveUserInfo()
     }
+    
     
     @IBAction func backpressed(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.preferencesVCIdentifier) as? PreferencesViewController else { return }
@@ -66,7 +102,7 @@ class DislikesViewController: UIViewController {
     
     
     
-    // MARK: - Labels
+// MARK: - Labels
     func showCountryLabel (_ ingredient : Ingredient) {
         for stackView in ingredientsStackViews {
             if let emptyView = stackView.arrangedSubviews.first(where: {$0.subviews.isEmpty}) {
@@ -128,6 +164,8 @@ extension DislikesViewController : UITableViewDelegate {
                 selectedIngredients.append(selectedIngredient)
                 showCountryLabel(selectedIngredient)
         } else { return }
+        ingredientsSearch.text = ""
+        ingredientsTableView.reloadData()
 
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -157,30 +195,29 @@ extension DislikesViewController : UITableViewDataSource {
 }
     
     
-    // MARK: - SearchBarDelegate
-    extension DislikesViewController : UISearchBarDelegate {
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            let searchText = ingredientsSearch.text ?? ""
-            
-            if searchText.isEmpty {
-                filteredIngredients = ingredients
-            } else {
-                let searchString = searchText.lowercased()
-                filterIngredient(searchString)
-            }
-            ingredientsTableView.reloadData()
-        }
+// MARK: - SearchBarDelegate
+extension DislikesViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchText = ingredientsSearch.text ?? ""
         
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            ingredientsTableView.isHidden = false
+        if searchText.isEmpty {
+            filteredIngredients = ingredients
+        } else {
+            let searchString = searchText.lowercased()
+            filterIngredient(searchString)
         }
-        
-        //filtering countries to show in tableview
-        func filterIngredient (_ text : String) {
-            filteredIngredients = ingredients.filter { Ingredient in
-                let name = Ingredient.title.lowercased()
-                return name.hasPrefix(text) ||
-                (name.rangeOfCharacter(from: .letters) != nil && name.contains(text))
-            }
+        ingredientsTableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        ingredientsTableView.isHidden = false
+    }
+    
+    func filterIngredient (_ text : String) {
+        filteredIngredients = ingredients.filter { Ingredient in
+            let name = Ingredient.title.lowercased()
+            return name.hasPrefix(text) ||
+            (name.rangeOfCharacter(from: .letters) != nil && name.contains(text))
         }
     }
+}

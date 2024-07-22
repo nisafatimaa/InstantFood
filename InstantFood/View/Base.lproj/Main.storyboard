@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jHh-w2-hyZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OWQ-aA-99O">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -83,7 +83,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hm-87-k64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="b4Z-2b-E7j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1994.4000000000001" y="-730.04926108374389"/>
+            <point key="canvasLocation" x="3695" y="-1441"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="5rg-BM-bGp">
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNy-SR-6x5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4529" y="1547"/>
+            <point key="canvasLocation" x="6362" y="802"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="ayU-nX-dq3">
@@ -313,25 +313,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgf-W6-QhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5554" y="1578"/>
+            <point key="canvasLocation" x="7281" y="833"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Lzx-r1-Nb6">
+        <!--Welcome View Controller-->
+        <scene sceneID="LeZ-E1-RUy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jHh-w2-hyZ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6qz-pi-m3p">
-                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="cVR-TQ-Oie" customClass="WelcomeViewController" customModule="InstantFood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lf0-Gx-y6V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InstantFood👨🏻‍🍳" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4T-4g-V5j">
+                                <rect key="frame" x="45" y="351" width="285" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="7Vl-je-XNB"/>
+                                    <constraint firstAttribute="width" constant="285" id="M7Q-2e-Mp4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                <color key="textColor" name="2ndryColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRH-tB-5Xd">
+                                <rect key="frame" x="125" y="716" width="125.33333333333331" height="50"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Y23-2D-ZtO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="rlo-Vm-Dhi"/>
+                                </constraints>
+                                <color key="tintColor" name="PrimaryColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Continue" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
+                                    <color key="baseForegroundColor" name="PrimaryColor"/>
+                                    <color key="baseBackgroundColor" name="2ndryColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ContinueButton:" destination="cVR-TQ-Oie" eventType="touchUpInside" id="WMh-l6-JQp"/>
+                                    <action selector="NextButton:" destination="b4Z-2b-E7j" eventType="touchUpInside" id="cN4-73-3VN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jx6-xi-zMo"/>
+                        <color key="backgroundColor" name="PrimaryColor"/>
+                        <constraints>
+                            <constraint firstItem="eRH-tB-5Xd" firstAttribute="centerX" secondItem="lf0-Gx-y6V" secondAttribute="centerX" id="hcU-9e-zk4"/>
+                            <constraint firstItem="Jx6-xi-zMo" firstAttribute="bottom" secondItem="eRH-tB-5Xd" secondAttribute="bottom" constant="12" id="hdb-Zd-aaI"/>
+                            <constraint firstItem="t4T-4g-V5j" firstAttribute="centerY" secondItem="lf0-Gx-y6V" secondAttribute="centerY" id="k8c-tQ-joe"/>
+                            <constraint firstItem="t4T-4g-V5j" firstAttribute="centerX" secondItem="lf0-Gx-y6V" secondAttribute="centerX" id="xyb-GP-GJP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oEj-1h-3sQ"/>
                     <connections>
-                        <segue destination="6q4-VQ-pgO" kind="relationship" relationship="rootViewController" id="ghy-7C-6XO"/>
+                        <outlet property="titleLabel" destination="t4T-4g-V5j" id="WkB-us-wds"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7WD-0p-DxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1iG-op-hQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="-730.04926108374389"/>
+            <point key="canvasLocation" x="2783" y="-1442"/>
         </scene>
         <!--Welcome View Controller Two-->
         <scene sceneID="ENJ-5A-UcK">
@@ -422,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3S-Pk-DKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="-730"/>
+            <point key="canvasLocation" x="4591" y="-1441"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="O2n-1j-pvg">
@@ -538,50 +576,28 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSs-L3-eoD">
                                         <rect key="frame" x="0.0" y="445" width="292" height="76"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hjq-0s-1Gs">
-                                                <rect key="frame" x="14" y="13" width="264" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-pB-ORL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="50"/>
-                                                        <color key="backgroundColor" name="2ndryColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Pcq-i5-0CP"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="xNR-Tr-b9f"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="PrimaryColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
-                                                            <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
-                                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="googleSignup:" destination="iE2-dN-pq2" eventType="touchUpInside" id="Mrj-Sf-a0C"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4W-Ji-d9n">
-                                                        <rect key="frame" x="147" y="0.0" width="117" height="50"/>
-                                                        <color key="backgroundColor" name="2ndryColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="JM7-5i-xkL"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="ojl-Uz-mEE"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="PrimaryColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
-                                                            <backgroundConfiguration key="background" image="facebook" imageContentMode="scaleAspectFit"/>
-                                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="facebookSignup:" destination="iE2-dN-pq2" eventType="touchUpInside" id="e72-jz-dXZ"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-pB-ORL">
+                                                <rect key="frame" x="3.3333333333333428" y="13" width="285" height="50"/>
+                                                <color key="backgroundColor" name="2ndryColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Pcq-i5-0CP"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="285" id="xNR-Tr-b9f"/>
+                                                </constraints>
+                                                <color key="tintColor" name="PrimaryColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                    <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
+                                                    <color key="baseBackgroundColor" name="PrimaryColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="googleSignup:" destination="iE2-dN-pq2" eventType="touchUpInside" id="Mrj-Sf-a0C"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="hjq-0s-1Gs" firstAttribute="centerX" secondItem="vSs-L3-eoD" secondAttribute="centerX" id="TBk-f4-wo9"/>
-                                            <constraint firstItem="hjq-0s-1Gs" firstAttribute="centerY" secondItem="vSs-L3-eoD" secondAttribute="centerY" id="oBN-MM-Nq3"/>
+                                            <constraint firstItem="3qA-pB-ORL" firstAttribute="centerY" secondItem="vSs-L3-eoD" secondAttribute="centerY" id="425-xW-5tt"/>
+                                            <constraint firstItem="3qA-pB-ORL" firstAttribute="centerX" secondItem="vSs-L3-eoD" secondAttribute="centerX" id="WTL-eg-tk0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -624,7 +640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BmV-y9-xsJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3648.8000000000002" y="-730.04926108374389"/>
+            <point key="canvasLocation" x="4591.1999999999998" y="-730.04926108374389"/>
         </scene>
         <!--Preferences View Controller-->
         <scene sceneID="5iL-dO-vEr">
@@ -861,7 +877,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezJ-Dp-f3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3632.8000000000002" y="12.561576354679804"/>
+            <point key="canvasLocation" x="4591" y="27"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Wvc-Lh-gKc">
@@ -963,51 +979,29 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxq-i8-aFx">
                                         <rect key="frame" x="0.0" y="380" width="292" height="90"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-rg-XPq">
-                                                <rect key="frame" x="14" y="20" width="264" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-iQ-Tsa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="50"/>
-                                                        <color key="backgroundColor" name="2ndryColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="QgP-Va-aBX"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="YXH-iM-ULf"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="PrimaryColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
-                                                            <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
-                                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="googleLogin:" destination="IgX-MT-qR6" eventType="touchUpInside" id="96O-sd-Nvx"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPO-7T-OR8">
-                                                        <rect key="frame" x="147" y="0.0" width="117" height="50"/>
-                                                        <color key="backgroundColor" name="2ndryColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="9uA-lz-ZjC"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="tR5-sj-v5Z"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="PrimaryColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
-                                                            <backgroundConfiguration key="background" image="facebook" imageContentMode="scaleAspectFit"/>
-                                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="facebookLogin:" destination="IgX-MT-qR6" eventType="touchUpInside" id="QI9-su-5Sa"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-iQ-Tsa">
+                                                <rect key="frame" x="3.3333333333333428" y="20" width="285" height="50"/>
+                                                <color key="backgroundColor" name="2ndryColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="QgP-Va-aBX"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="285" id="YXH-iM-ULf"/>
+                                                </constraints>
+                                                <color key="tintColor" name="PrimaryColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                                    <backgroundConfiguration key="background" image="google" imageContentMode="scaleAspectFit"/>
+                                                    <color key="baseBackgroundColor" name="PrimaryColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="googleLogin:" destination="IgX-MT-qR6" eventType="touchUpInside" id="96O-sd-Nvx"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="8qv-lz-AvS"/>
-                                            <constraint firstItem="GPu-rg-XPq" firstAttribute="centerX" secondItem="kxq-i8-aFx" secondAttribute="centerX" id="UI4-XP-RMF"/>
-                                            <constraint firstItem="GPu-rg-XPq" firstAttribute="centerY" secondItem="kxq-i8-aFx" secondAttribute="centerY" id="XMT-Ou-vOi"/>
+                                            <constraint firstItem="QI2-iQ-Tsa" firstAttribute="centerX" secondItem="kxq-i8-aFx" secondAttribute="centerX" id="97r-xA-iZN"/>
+                                            <constraint firstItem="QI2-iQ-Tsa" firstAttribute="centerY" secondItem="kxq-i8-aFx" secondAttribute="centerY" id="FZc-je-eUn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1049,7 +1043,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxc-1y-4bu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4530" y="-730"/>
+            <point key="canvasLocation" x="5471.1999999999998" y="-730.04926108374389"/>
         </scene>
         <!--Dislikes View Controller-->
         <scene sceneID="xQ2-Ke-V5V">
@@ -1287,7 +1281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lp7-Ob-h2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4529" y="13"/>
+            <point key="canvasLocation" x="5471" y="27"/>
         </scene>
         <!--Ingredients View Controller-->
         <scene sceneID="MBX-c6-dcT">
@@ -1469,7 +1463,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4n-HA-fz6">
-                                <rect key="frame" x="108.66666666666669" y="587" width="158" height="50"/>
+                                <rect key="frame" x="108.66666666666669" y="585" width="158" height="50"/>
                                 <color key="backgroundColor" name="2ndryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GTF-Vv-vnK"/>
@@ -1492,7 +1486,7 @@
                             <constraint firstItem="G4n-HA-fz6" firstAttribute="centerX" secondItem="yj7-yd-jT7" secondAttribute="centerX" id="04h-ab-T2r"/>
                             <constraint firstItem="f45-1o-R6D" firstAttribute="centerY" secondItem="yj7-yd-jT7" secondAttribute="centerY" constant="-71" id="9aL-cs-iZY"/>
                             <constraint firstItem="f45-1o-R6D" firstAttribute="centerX" secondItem="yj7-yd-jT7" secondAttribute="centerX" id="AHD-Dg-wfa"/>
-                            <constraint firstItem="G4n-HA-fz6" firstAttribute="bottom" secondItem="Hew-la-Gb7" secondAttribute="bottom" constant="-141" id="J0g-FL-zNk"/>
+                            <constraint firstItem="G4n-HA-fz6" firstAttribute="bottom" secondItem="Hew-la-Gb7" secondAttribute="bottom" constant="-143" id="J0g-FL-zNk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1506,13 +1500,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7H-fj-bt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4529" y="802"/>
+            <point key="canvasLocation" x="5471" y="802"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bFK-LF-osV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OWQ-aA-99O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wWl-w9-EUG">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cVR-TQ-Oie" kind="relationship" relationship="rootViewController" id="OUe-nY-q2z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="awd-nW-rch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-1442"/>
         </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="dishImage" width="360" height="360"/>
-        <image name="facebook" width="2143" height="2143"/>
         <image name="google" width="1024" height="1024"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>

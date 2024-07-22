@@ -13,7 +13,7 @@ import GoogleSignIn
 struct LoginManager {
     
     
-    // MARK: - loginWithEmail
+// MARK: - loginWithEmail
     func loginWithEmail (_ vc : UIViewController, _ email : String, _ password : String){
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -27,7 +27,8 @@ struct LoginManager {
     }
     
     
-    // MARK: -  Google Sign in
+    
+// MARK: -  Google Sign in
     func signupWithGoogle(_ vc : UIViewController ) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
@@ -51,9 +52,9 @@ struct LoginManager {
                     AlertMessage.showAlertMessage("Try later", "Unable to sign up with google", vc)
                     return }
                 guard let mainVC = vc.storyboard?.instantiateViewController(withIdentifier: K.ingredientsVCIdentifier) as? IngredientsViewController else { return }
-                        vc.navigationController?.pushViewController(mainVC, animated: true)
-                    }
-                }
+                vc.navigationController?.pushViewController(mainVC, animated: true)
             }
         }
+    }
+}
 

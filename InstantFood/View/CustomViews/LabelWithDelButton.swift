@@ -7,14 +7,21 @@
 
 import UIKit
 
+
+// MARK: - Protocol
 protocol LabelWithDelButtonDelegate {
     func didDeleteLabel(with text: String)
 }
 
+
 class LabelWithDelButton: UIView {
   
+    
+// MARK: - Variables
     var delegate : LabelWithDelButtonDelegate?
     
+
+// MARK: - Label and Button
     private let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
@@ -31,6 +38,8 @@ class LabelWithDelButton: UIView {
           return button
       }()
     
+    
+// MARK: - Initializers
     override init(frame: CGRect) {
          super.init(frame: frame)
          commonInit()
@@ -40,7 +49,9 @@ class LabelWithDelButton: UIView {
          super.init(coder: coder)
          commonInit()
      }
-
+    
+    
+// MARK: - Functions
      private func commonInit() {
          
          deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)

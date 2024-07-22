@@ -16,8 +16,8 @@ struct RecipeManager {
             let parameters: [String: Any] = [
                 "type": "public",
                 "q": ingredients,
-                "app_id": APIKey.apiId,
-                "app_key": APIKey.apiKey,
+                "app_id": APIKey.appID,
+                "app_key": APIKey.apikey,
                 "time": "1-120",
                 "imageSize": "REGULAR"
             ]

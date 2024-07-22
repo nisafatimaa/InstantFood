@@ -45,6 +45,8 @@
 		52D4BDC92C3F0169004983CD /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4BDC82C3F0169004983CD /* IngredientsModel.swift */; };
 		52E104E02BCD202A00B93A3D /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104DF2BCD202A00B93A3D /* BezierPath.swift */; };
 		52E104E52BCDB0FE00B93A3D /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E104E42BCDB0FE00B93A3D /* K.swift */; };
+		7D3B34CB2C4E52B900CBE463 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B34CA2C4E52B900CBE463 /* WelcomeViewController.swift */; };
+		7D3B34CE2C4E568600CBE463 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3B34CD2C4E568600CBE463 /* KeychainSwift */; };
 		7DDE31502C4B9BBD000FB89A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7DDE314F2C4B9BBD000FB89A /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,7 @@
 		52D4BDC82C3F0169004983CD /* IngredientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsModel.swift; sourceTree = "<group>"; };
 		52E104DF2BCD202A00B93A3D /* BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierPath.swift; sourceTree = "<group>"; };
 		52E104E42BCDB0FE00B93A3D /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		7D3B34CA2C4E52B900CBE463 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 				529613102C35D2C8008784EF /* FirebaseAuth in Frameworks */,
 				529613122C35D2C8008784EF /* FirebaseFirestore in Frameworks */,
 				52369B6B2C3D1A15000EE299 /* FlagKit in Frameworks */,
+				7D3B34CE2C4E568600CBE463 /* KeychainSwift in Frameworks */,
 				7DDE31502C4B9BBD000FB89A /* Alamofire in Frameworks */,
 				529613192C37EAC9008784EF /* GoogleSignIn in Frameworks */,
 				5296131B2C37EAC9008784EF /* GoogleSignInSwift in Frameworks */,
@@ -115,9 +119,9 @@
 		52369B622C3D0FB4000EE299 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				521464EF2C400AB200F9C509 /* IngredientsViewController.swift */,
 				522D2D562BDFD7DD0096A1CA /* RecipeViewController.swift */,
 				522D2D5A2BE1582E0096A1CA /* DetailsViewController.swift */,
-				521464EF2C400AB200F9C509 /* IngredientsViewController.swift */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -190,6 +194,7 @@
 		52CAC7142C347CAF006406F7 /* WelcomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				7D3B34CA2C4E52B900CBE463 /* WelcomeViewController.swift */,
 				52CAC7102C347B7D006406F7 /* WelcomeViewControllerOne.swift */,
 				52CAC7122C347B91006406F7 /* WelcomeViewControllerTwo.swift */,
 				529613132C36BCFA008784EF /* PreferencesViewController.swift */,
@@ -287,6 +292,7 @@
 				5296131A2C37EAC9008784EF /* GoogleSignInSwift */,
 				52369B6A2C3D1A15000EE299 /* FlagKit */,
 				7DDE314F2C4B9BBD000FB89A /* Alamofire */,
+				7D3B34CD2C4E568600CBE463 /* KeychainSwift */,
 			);
 			productName = InstantFood;
 			productReference = 52C5F6642BBFF5AA009C0326 /* InstantFood.app */;
@@ -304,6 +310,7 @@
 				TargetAttributes = {
 					52C5F6632BBFF5AA009C0326 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -322,6 +329,7 @@
 				52369B692C3D1A15000EE299 /* XCRemoteSwiftPackageReference "FlagKit" */,
 				7DDE314B2C4B97A1000FB89A /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				7DDE314E2C4B9BBD000FB89A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7D3B34CC2C4E568600CBE463 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 52C5F6652BBFF5AA009C0326 /* Products */;
 			projectDirPath = "";
@@ -374,6 +382,7 @@
 				5296131F2C38310E008784EF /* LoginManager.swift in Sources */,
 				52C5F6682BBFF5AA009C0326 /* AppDelegate.swift in Sources */,
 				52C5F66A2BBFF5AA009C0326 /* SceneDelegate.swift in Sources */,
+				7D3B34CB2C4E52B900CBE463 /* WelcomeViewController.swift in Sources */,
 				52D4BDBF2C3EB182004983CD /* LabelWithDelButton.swift in Sources */,
 				52CAC7112C347B7D006406F7 /* WelcomeViewControllerOne.swift in Sources */,
 				52BC82792BD7C308007285CF /* RecipeModel.swift in Sources */,
@@ -524,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -541,6 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nisafatima.InstantFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -551,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -621,6 +633,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		7D3B34CC2C4E568600CBE463 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
 		7DDE314B2C4B97A1000FB89A /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
@@ -664,6 +684,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 529613172C37EAC8008784EF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		7D3B34CD2C4E568600CBE463 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D3B34CC2C4E568600CBE463 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 		7DDE314F2C4B9BBD000FB89A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

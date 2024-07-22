@@ -9,17 +9,23 @@ import FlagKit
 
 class PreferencesViewController: UIViewController {
     
+    
+// MARK: - IBOutets
     @IBOutlet var countryTableView: UITableView!
     @IBOutlet var countrySearch: UISearchBar!
     @IBOutlet var countryStackViews: [UIStackView]!
     
     //typealias : nickname for already existing data type
     typealias countryList = Array<Country>
+
     
+// MARK: - Variables
     var countries : countryList = []
     var filteredCountries : countryList = []
     var selectedCountries : countryList = []
     
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +37,7 @@ class PreferencesViewController: UIViewController {
         countryTableView.register(UINib(nibName: K.countryCellNibName, bundle: nil), forCellReuseIdentifier: K.CountryCellIdentifier)
         
     }
+
     
 // MARK: - LoadingCountries
     func loadCountries() -> [Country] {
@@ -57,10 +64,14 @@ class PreferencesViewController: UIViewController {
         countryTableView.reloadData()
     }
     
+    
     @IBAction func savePressed(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.dislikesVCIdentifier) as? DislikesViewController else { return }
+        
+        vc.selectedCountries = selectedCountries
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     @IBAction func backpressed(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.signupVCIdentifier) as? SignupViewController else { return }
@@ -68,7 +79,8 @@ class PreferencesViewController: UIViewController {
     }
     
     
-// MARK: - Labels
+    
+// MARK: - Country Labels
     func showCountryLabel (_ country : Country) {
         for stackView in countryStackViews {
             if let emptyView = stackView.arrangedSubviews.first(where: {$0.subviews.isEmpty}) {
@@ -96,6 +108,9 @@ class PreferencesViewController: UIViewController {
 
 // MARK: - LabelWithDelButtonDelegate
 extension PreferencesViewController : LabelWithDelButtonDelegate {
+//it will first remove that country from array then remove all labels and then again create labels of countries of array
+    
+// MARK: - Functions
     func didDeleteLabel(with text: String) {
         if let index = selectedCountries.firstIndex(where: { $0.name == text }) {
             selectedCountries.remove(at: index)
@@ -130,7 +145,8 @@ extension PreferencesViewController : UITableViewDelegate {
                 selectedCountries.append(selectedCountry)
                 showCountryLabel(selectedCountry)
         } else { return }
-
+        countrySearch.text = ""
+        countryTableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -147,6 +163,7 @@ extension PreferencesViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CountryCellIdentifier, for: indexPath) as! CountryTableViewCell
         
         let row = filteredCountries[indexPath.row]
+        
         cell.CountryName.text = row.name
         if let flagImage = Flag(countryCode: row.code)?.image(style: .circle) {
             cell.flagImage.image = flagImage
@@ -159,6 +176,8 @@ extension PreferencesViewController : UITableViewDataSource {
 
 // MARK: - SearchBarDelegate
 extension PreferencesViewController : UISearchBarDelegate {
+    
+// MARK: - Functions
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchText = countrySearch.text ?? ""
         
@@ -171,11 +190,13 @@ extension PreferencesViewController : UISearchBarDelegate {
         countryTableView.reloadData()
     }
     
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         countryTableView.isHidden = false
     }
     
-    //filtering countries to show in tableview
+    
+// MARK: - FilteringArray
     func filterCountries (_ text : String) {
         filteredCountries = countries.filter { Country in
             let name = Country.name.lowercased()

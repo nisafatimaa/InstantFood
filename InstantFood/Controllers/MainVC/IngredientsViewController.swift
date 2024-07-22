@@ -9,17 +9,22 @@ import UIKit
 
 class IngredientsViewController: UIViewController {
 
+    
+// MARK: - IBOutlets
     @IBOutlet var ingredientSearchBar: UISearchBar!
     @IBOutlet var ingredientTable: UITableView!
     @IBOutlet var ingredientsStackViews: [UIStackView]!
     
+    
+// MARK: - Variables
     var shape : CAShapeLayer?
     var recipeManager = RecipeManager()
-    
     private var ingredients : [Ingredient] = []
     private var filteredIngredients : [Ingredient] = []
     private var selectedIngredients : [Ingredient] = []
     
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +38,7 @@ class IngredientsViewController: UIViewController {
     
     
     
-    // MARK: - LoadingIngredients
+// MARK: - LoadingIngredients
     func loadIngredients() -> [Ingredient] {
         guard let path = Bundle.main.path(forResource: "ingredients", ofType: "json"),
               let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
@@ -51,7 +56,8 @@ class IngredientsViewController: UIViewController {
         }
     }
     
-    
+   
+// MARK: - Functions
     func drawBottomLayer(){
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = K.primaryColor?.cgColor
@@ -60,14 +66,16 @@ class IngredientsViewController: UIViewController {
         self.shape = shapeLayer
     }
     
+    
+// MARK: - Buttons
     @IBAction func searchIngredient(_ sender: UIButton) {
         let searchString = ingredientSearchBar.text ?? ""
         filterIngredient(searchString)
         ingredientTable.reloadData()
     }
     
+    
     @IBAction func getRecipesButton(_ sender: UIButton) {
-        
         let ingredients = selectedIngredients.map {$0.title}.joined(separator: ",")
         guard let vc = storyboard?.instantiateViewController(withIdentifier: K.recipeVCIdentifier) as? RecipeViewController else { return }
         vc.ingredients = ingredients
@@ -76,7 +84,7 @@ class IngredientsViewController: UIViewController {
     
     
     
-    // MARK: - Labels
+// MARK: - Labels
     func showCountryLabel (_ ingredient : Ingredient) {
         for stackView in ingredientsStackViews {
             if let emptyView = stackView.arrangedSubviews.first(where: {$0.subviews.isEmpty}) {
@@ -137,7 +145,10 @@ extension IngredientsViewController : UITableViewDelegate {
                 selectedIngredients.append(selectedIngredient)
                 showCountryLabel(selectedIngredient)
         } else { return }
-
+        
+        ingredientSearchBar.text = ""
+        ingredientTable.reloadData()
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -181,11 +192,12 @@ extension IngredientsViewController : UISearchBarDelegate {
         ingredientTable.reloadData()
     }
     
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         ingredientTable.isHidden = false
     }
     
-    //filtering countries to show in tableview
+    
     func filterIngredient (_ text : String) {
         filteredIngredients = ingredients.filter { Ingredient in
             let name = Ingredient.title.lowercased()
